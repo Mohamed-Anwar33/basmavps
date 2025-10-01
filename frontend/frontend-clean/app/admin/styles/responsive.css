@@ -1,0 +1,578 @@
+/* Enhanced Responsive Styles for Admin Dashboard */
+
+/* Global Mobile Optimizations */
+@media (max-width: 768px) {
+  /* Container and Layout */
+  .admin-container {
+    padding: 12px !important;
+  }
+  
+  .admin-content {
+    margin: 0 !important;
+    padding: 16px !important;
+  }
+  
+  /* Typography */
+  .admin-title {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .admin-subtitle {
+    font-size: 0.875rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* Cards */
+  .ant-card {
+    margin-bottom: 16px !important;
+    border-radius: 12px !important;
+  }
+  
+  .ant-card-head {
+    padding: 16px 20px !important;
+    min-height: auto !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px 20px !important;
+  }
+  
+  .ant-card-head-title {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Buttons */
+  .ant-btn {
+    height: 44px !important;
+    font-size: 16px !important;
+    border-radius: 12px !important;
+    padding: 0 20px !important;
+    min-width: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  
+  .ant-btn-sm {
+    height: 36px !important;
+    font-size: 14px !important;
+    padding: 0 16px !important;
+    min-width: 36px !important;
+  }
+  
+  .ant-btn-lg {
+    height: 48px !important;
+    font-size: 18px !important;
+    padding: 0 24px !important;
+  }
+  
+  .ant-btn-icon-only {
+    width: 44px !important;
+    padding: 0 !important;
+  }
+  
+  /* Form Elements */
+  .ant-input {
+    height: 44px !important;
+    font-size: 16px !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+  }
+  
+  .ant-input-affix-wrapper {
+    height: 44px !important;
+    border-radius: 12px !important;
+    padding: 0 16px !important;
+  }
+  
+  .ant-input-affix-wrapper .ant-input {
+    height: 20px !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+  }
+  
+  .ant-input-search {
+    height: 44px !important;
+  }
+  
+  .ant-input-search .ant-input {
+    height: 44px !important;
+  }
+  
+  .ant-select-selector {
+    height: 44px !important;
+    border-radius: 12px !important;
+    padding: 8px 16px !important;
+  }
+  
+  .ant-select-selection-item {
+    line-height: 28px !important;
+    font-size: 16px !important;
+  }
+  
+  .ant-select-selection-placeholder {
+    line-height: 28px !important;
+    font-size: 16px !important;
+  }
+  
+  .ant-input-number {
+    height: 44px !important;
+    border-radius: 12px !important;
+  }
+  
+  .ant-input-number-input {
+    height: 42px !important;
+    font-size: 16px !important;
+    padding: 0 16px !important;
+  }
+  
+  /* TextArea */
+  .ant-input {
+    font-size: 16px !important;
+    border-radius: 12px !important;
+  }
+  
+  /* Tables */
+  .ant-table-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 12px !important;
+  }
+  
+  .ant-table {
+    min-width: 700px !important;
+    font-size: 14px !important;
+  }
+  
+  .ant-table-thead > tr > th {
+    font-size: 14px !important;
+    padding: 12px 8px !important;
+    white-space: nowrap !important;
+    min-width: 100px !important;
+    font-weight: 600 !important;
+  }
+  
+  .ant-table-tbody > tr > td {
+    font-size: 14px !important;
+    padding: 12px 8px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 150px !important;
+  }
+  
+  /* Sticky first column for mobile tables */
+  .ant-table-tbody > tr > td:first-child,
+  .ant-table-thead > tr > th:first-child {
+    position: sticky !important;
+    left: 0 !important;
+    background: white !important;
+    z-index: 1 !important;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1) !important;
+  }
+  
+  /* Forms */
+  .ant-form-item {
+    margin-bottom: 20px !important;
+  }
+  
+  .ant-form-item-label {
+    padding-bottom: 8px !important;
+  }
+  
+  .ant-form-item-label > label {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+  }
+  
+  .ant-row {
+    margin: 0 !important;
+  }
+  
+  .ant-col {
+    padding: 0 8px !important;
+  }
+  
+  /* Modals */
+  .ant-modal {
+    margin: 16px !important;
+    max-width: calc(100vw - 32px) !important;
+    width: calc(100vw - 32px) !important;
+    top: 20px !important;
+  }
+  
+  .ant-modal-content {
+    border-radius: 16px !important;
+  }
+  
+  .ant-modal-header {
+    padding: 16px 20px !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+  
+  .ant-modal-title {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+  }
+  
+  .ant-modal-body {
+    padding: 20px !important;
+    max-height: calc(100vh - 200px) !important;
+    overflow-y: auto !important;
+  }
+  
+  .ant-modal-footer {
+    padding: 16px 20px !important;
+    border-radius: 0 0 16px 16px !important;
+  }
+  
+  .ant-modal-footer .ant-btn {
+    margin-left: 8px !important;
+  }
+  
+  /* Tabs */
+  .ant-tabs {
+    overflow: visible !important;
+  }
+  
+  .ant-tabs-tab {
+    font-size: 14px !important;
+    padding: 12px 16px !important;
+    margin: 0 4px !important;
+  }
+  
+  .ant-tabs-content-holder {
+    overflow: visible !important;
+  }
+  
+  .ant-tabs-tabpane {
+    padding: 16px 0 !important;
+  }
+  
+  /* Pagination */
+  .ant-pagination {
+    text-align: center !important;
+    margin-top: 20px !important;
+  }
+  
+  .ant-pagination-item {
+    min-width: 36px !important;
+    height: 36px !important;
+    line-height: 34px !important;
+  }
+  
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    min-width: 36px !important;
+    height: 36px !important;
+    line-height: 34px !important;
+  }
+  
+  /* Space and Layout */
+  .ant-space {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  
+  .ant-space-item {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Descriptions */
+  .ant-descriptions {
+    font-size: 14px !important;
+  }
+  
+  .ant-descriptions-item-label {
+    font-weight: 600 !important;
+    color: #374151 !important;
+    font-size: 14px !important;
+  }
+  
+  .ant-descriptions-item-content {
+    word-break: break-word !important;
+    font-size: 14px !important;
+  }
+  
+  /* Drawer */
+  .ant-drawer-body {
+    padding: 16px !important;
+  }
+  
+  .ant-drawer-header {
+    padding: 16px 20px !important;
+  }
+  
+  /* Tags */
+  .ant-tag {
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    border-radius: 8px !important;
+  }
+  
+  /* Badges */
+  .ant-badge {
+    font-size: 12px !important;
+  }
+  
+  /* Tooltips */
+  .ant-tooltip {
+    font-size: 14px !important;
+  }
+  
+  /* Upload */
+  .ant-upload-drag {
+    padding: 20px !important;
+  }
+  
+  .ant-upload-drag-icon {
+    margin-bottom: 12px !important;
+  }
+  
+  /* Steps */
+  .ant-steps-item-title {
+    font-size: 14px !important;
+  }
+  
+  .ant-steps-item-description {
+    font-size: 12px !important;
+  }
+}
+
+/* Tablet Responsive Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ant-table {
+    font-size: 14px !important;
+  }
+  
+  .ant-modal {
+    width: 90vw !important;
+    max-width: 800px !important;
+  }
+  
+  .ant-card-body {
+    padding: 20px !important;
+  }
+  
+  .ant-btn {
+    height: 40px !important;
+    font-size: 15px !important;
+  }
+  
+  .ant-input {
+    height: 40px !important;
+    font-size: 15px !important;
+  }
+  
+  .ant-select-selector {
+    height: 40px !important;
+  }
+}
+
+/* Large Screen Optimizations */
+@media (min-width: 1400px) {
+  .ant-modal {
+    max-width: 1200px !important;
+  }
+  
+  .admin-container {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .ant-btn:hover {
+    transform: none !important;
+  }
+  
+  .ant-card:hover {
+    transform: none !important;
+  }
+  
+  .ant-menu-item:hover {
+    transform: none !important;
+  }
+  
+  .ant-table-tbody > tr:hover > td {
+    background: rgba(124, 58, 237, 0.04) !important;
+    transform: none !important;
+  }
+  
+  /* Increase touch targets */
+  .ant-btn,
+  .ant-input,
+  .ant-select-selector,
+  .ant-checkbox-wrapper,
+  .ant-radio-wrapper {
+    min-height: 44px !important;
+  }
+}
+
+/* Custom Admin Classes */
+.admin-mobile-hidden {
+  display: block;
+}
+
+.admin-mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .admin-mobile-hidden {
+    display: none !important;
+  }
+  
+  .admin-mobile-only {
+    display: block !important;
+  }
+}
+
+/* Responsive Grid System */
+.admin-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.admin-grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.admin-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.admin-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.admin-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+  .admin-grid-2,
+  .admin-grid-3,
+  .admin-grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .admin-grid-3,
+  .admin-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Responsive Flex Utilities */
+.admin-flex-col-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 769px) {
+  .admin-flex-col-mobile {
+    flex-direction: row;
+  }
+}
+
+/* Responsive Text Sizes */
+.admin-text-responsive {
+  font-size: 1rem;
+}
+
+.admin-title-responsive {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .admin-text-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .admin-title-responsive {
+    font-size: 1.25rem;
+  }
+}
+
+/* Responsive Spacing */
+.admin-space-y-responsive {
+  margin-top: 0;
+}
+
+.admin-space-y-responsive > * + * {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .admin-space-y-responsive > * + * {
+    margin-top: 1rem;
+  }
+}
+
+/* Scrollable Tables */
+.admin-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.admin-table-container .ant-table {
+  margin-bottom: 0;
+}
+
+/* Enhanced Mobile Navigation */
+.admin-mobile-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  padding: 12px;
+  z-index: 1000;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .admin-mobile-nav {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .admin-content {
+    padding-bottom: 80px !important;
+  }
+}
+
+.admin-mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 12px;
+  min-width: 60px;
+}
+
+.admin-mobile-nav-item.active {
+  color: #7c3aed;
+  background: #f3f4f6;
+}
+
+.admin-mobile-nav-item .anticon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}

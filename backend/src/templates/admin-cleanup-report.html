@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير تنظيف النظام - بصمة تصميم</title>
+    <style>
+        body {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .header .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .content {
+            padding: 30px;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .summary-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .summary-card.success {
+            border-color: #10b981;
+            background: #ecfdf5;
+        }
+        .summary-card.warning {
+            border-color: #f59e0b;
+            background: #fffbeb;
+        }
+        .summary-card .number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        .summary-card .label {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .details-table th,
+        .details-table td {
+            padding: 12px;
+            text-align: right;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .details-table th {
+            background: #f8fafc;
+            font-weight: bold;
+            color: #374151;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .status-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .footer {
+            background: #f8fafc;
+            padding: 20px 30px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        .server-info {
+            background: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="icon">🧹</span>
+            <h1>تقرير تنظيف النظام</h1>
+            <p style="margin: 0; opacity: 0.9;">{{timestamp}}</p>
+        </div>
+        
+        <div class="content">
+            <!-- ملخص العملية -->
+            <div class="section">
+                <h2 class="section-title">📊 ملخص عملية التنظيف</h2>
+                <div class="summary-grid">
+                    <div class="summary-card {{#if report.summary.ordersСleaned}}warning{{else}}success{{/if}}">
+                        <div class="number">{{report.summary.ordersСleaned}}</div>
+                        <div class="label">طلبات تم حذفها</div>
+                    </div>
+                    <div class="summary-card {{#if report.summary.paymentsСleaned}}warning{{else}}success{{/if}}">
+                        <div class="number">{{report.summary.paymentsСleaned}}</div>
+                        <div class="label">مدفوعات تم حذفها</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="number">{{report.summary.totalErrors}}</div>
+                        <div class="label">أخطاء</div>
+                    </div>
+                    <div class="summary-card success">
+                        <div class="number">{{report.summary.duration}}</div>
+                        <div class="label">مدة التنفيذ</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- معلومات النظام -->
+            <div class="server-info">
+                <strong>🖥️ معلومات النظام:</strong><br>
+                الخادم: {{serverName}} | الوقت: {{timestamp}}
+            </div>
+
+            {{#if report.details.orders}}
+            <!-- تفاصيل الطلبات المحذوفة -->
+            <div class="section">
+                <h2 class="section-title">📦 تفاصيل الطلبات المحذوفة ({{report.details.orders.cleanedCount}})</h2>
+                {{#if report.details.orders.report}}
+                <table class="details-table">
+                    <thead>
+                        <tr>
+                            <th>معرف الطلب</th>
+                            <th>البريد الإلكتروني</th>
+                            <th>المبلغ</th>
+                            <th>العملة</th>
+                            <th>تاريخ الإنشاء</th>
+                            <th>عدد العناصر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each report.details.orders.report}}
+                        <tr>
+                            <td>{{this.orderId}}</td>
+                            <td>{{this.guestInfo.email}}</td>
+                            <td>{{this.total}}</td>
+                            <td>{{this.currency}}</td>
+                            <td>{{this.createdAt}}</td>
+                            <td>{{this.items}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+                <p style="color: #10b981; font-weight: bold;">✅ لم يتم العثور على طلبات تحتاج تنظيف</p>
+                {{/if}}
+            </div>
+            {{/if}}
+
+            {{#if report.details.payments}}
+            <!-- تفاصيل المدفوعات المحذوفة -->
+            <div class="section">
+                <h2 class="section-title">💳 تفاصيل المدفوعات المحذوفة ({{report.details.payments.cleanedCount}})</h2>
+                {{#if report.details.payments.report}}
+                <table class="details-table">
+                    <thead>
+                        <tr>
+                            <th>معرف المدفوعة</th>
+                            <th>الحالة</th>
+                            <th>المزود</th>
+                            <th>المبلغ</th>
+                            <th>العملة</th>
+                            <th>تاريخ الإنشاء</th>
+                            <th>سبب الفشل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each report.details.payments.report}}
+                        <tr>
+                            <td>{{this.paymentId}}</td>
+                            <td>
+                                <span class="status-badge status-{{#if this.status}}warning{{else}}success{{/if}}">
+                                    {{this.status}}
+                                </span>
+                            </td>
+                            <td>{{this.provider}}</td>
+                            <td>{{this.amount}}</td>
+                            <td>{{this.currency}}</td>
+                            <td>{{this.createdAt}}</td>
+                            <td>{{this.failureReason}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+                <p style="color: #10b981; font-weight: bold;">✅ لم يتم العثور على مدفوعات تحتاج تنظيف</p>
+                {{/if}}
+            </div>
+            {{/if}}
+
+            {{#if report.details.errors}}
+            <!-- الأخطاء -->
+            <div class="section">
+                <h2 class="section-title">⚠️ الأخطاء ({{report.details.errors.length}})</h2>
+                {{#each report.details.errors}}
+                <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                    <strong>خطأ:</strong> {{this}}
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+
+            <!-- التوصيات -->
+            <div class="section">
+                <h2 class="section-title">💡 توصيات النظام</h2>
+                {{#if report.summary.totalErrors}}
+                <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin-bottom: 15px;">
+                    <strong>⚠️ تحذير:</strong> هناك أخطاء في عملية التنظيف تحتاج مراجعة فورية
+                </div>
+                {{/if}}
+                
+                {{#if report.summary.ordersСleaned}}
+                <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin-bottom: 15px;">
+                    <strong>📝 ملاحظة:</strong> تم حذف {{report.summary.ordersСleaned}} طلب معلق - قد تحتاج لمراجعة عملية الطلبات
+                </div>
+                {{/if}}
+                
+                {{#unless report.summary.ordersСleaned}}
+                {{#unless report.summary.paymentsСleaned}}
+                <div style="background: #ecfdf5; border-left: 4px solid #10b981; padding: 15px;">
+                    <strong>✅ ممتاز:</strong> النظام نظيف ولا يحتاج لأي تدخل
+                </div>
+                {{/unless}}
+                {{/unless}}
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>بصمة تصميم</strong> - نظام إدارة الطلبات والمدفوعات</p>
+            <p>تم إنشاء هذا التقرير تلقائياً بواسطة نظام التنظيف المتقدم</p>
+        </div>
+    </div>
+</body>
+</html>

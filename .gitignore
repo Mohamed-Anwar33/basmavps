@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables - CRITICAL SECURITY
+# .env
+# .env.*
+# backend/.env
+# backend/.env.*
+# frontend/.env
+# frontend/.env.*
+# !*.env.example
+# !**/*.env.example
+.env.development.local
+.env.test.local
+.env.production.local
+# .env.production
+
+# Build outputs
+next/
+out/
+dist/
+build/
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Security backups and sensitive folders
+security-backup*/
+backups/
+scripts/test-*
+scripts/*-test*
+scripts/comprehensive-*
+*.backup
+
+# Logs
+logs/
+*.log
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

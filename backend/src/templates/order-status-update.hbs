@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحديث حالة الطلب - بصمة تصميم</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f6;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #4b2e83, #7a4db3);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .status-card {
+            background-color: #f8f9fa;
+            border: 2px solid {{statusColor}};
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .status-badge {
+            background-color: {{statusColor}};
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .order-details {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .order-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4b2e83;
+            margin-bottom: 10px;
+        }
+        .service-name {
+            color: #666;
+            font-size: 16px;
+        }
+        .notes {
+            background-color: #e8f4fd;
+            border-right: 4px solid #1890ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4b2e83, #7a4db3);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(75, 46, 131, 0.3);
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e9ecef;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 0 10px;
+            }
+            .header, .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                🎨
+            </div>
+            <h1>بصمة تصميم</h1>
+            <p>تحديث حالة طلبك</p>
+        </div>
+
+        <div class="content">
+            <h2>مرحباً {{customerName}}،</h2>
+            
+            <p>نود إعلامك بأن حالة طلبك قد تم تحديثها:</p>
+
+            <div class="order-details">
+                <div class="order-number">طلب رقم: #{{orderNumber}}</div>
+                <div class="service-name">الخدمة: {{serviceName}}</div>
+            </div>
+
+            <div class="status-card">
+                <h3>الحالة الجديدة:</h3>
+                <span class="status-badge">{{status}}</span>
+            </div>
+
+            {{#if notes}}
+            <div class="notes">
+                <h4>ملاحظات من الإدارة:</h4>
+                <p>{{notes}}</p>
+            </div>
+            {{/if}}
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="{{orderUrl}}" class="cta-button">عرض تفاصيل الطلب</a>
+            </div>
+
+            <div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: #1890ff; margin-top: 0;">معلومات مفيدة:</h4>
+                <ul style="margin: 0; padding-right: 20px;">
+                    <li><strong>قيد المعالجة:</strong> فريقنا بدأ العمل على طلبك</li>
+                    <li><strong>مكتمل:</strong> تم الانتهاء من طلبك وتم التسليم</li>
+                    <li><strong>ملغي:</strong> تم إلغاء الطلب لسبب ما</li>
+                </ul>
+            </div>
+
+            <p>إذا كان لديك أي استفسار، لا تتردد في التواصل معنا.</p>
+            
+            <p style="margin-top: 30px;">
+                شكراً لثقتك في بصمة تصميم<br>
+                <strong>فريق بصمة تصميم</strong>
+            </p>
+        </div>
+
+        <div class="footer">
+            <p><strong>بصمة تصميم</strong></p>
+            <p>البريد الإلكتروني: info@basmadesign.com | الهاتف: +966 XX XXX XXXX</p>
+            <p style="font-size: 12px; color: #999;">
+                هذا الإيميل تم إرساله تلقائياً، يرجى عدم الرد عليه مباشرة.
+                للتواصل معنا، استخدم معلومات الاتصال أعلاه.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
