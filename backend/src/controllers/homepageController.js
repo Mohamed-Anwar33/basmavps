@@ -1,4 +1,4 @@
-﻿import Service from '../models/Service.js';
+import Service from '../models/Service.js';
 import Blog from '../models/Blog.js';
 import FAQ from '../models/FAQ.js';
 import Setting from '../models/Setting.js';
@@ -109,7 +109,7 @@ export const getHeroSection = async (req, res) => {
     // Fallback data if no settings found
     if (Object.keys(hero).length === 0) {
       const fallbackHero = {
-        title: { ar: "Ù…Ø±Ø­Ø¨Ø§Ù‹ Ø¨Ùƒ ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…", en: "Welcome to Basma Design" },
+        title: { ar: "Ù…Ø±Ø­Ø¨Ø§Ù‹ Ø¨Ùƒ ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…", en: "Welcome to Basmat Design" },
         subtitle: { ar: "Ù†Ø­Ù† Ù†Ù‚Ø¯Ù… Ø®Ø¯Ù…Ø§Øª ØªØµÙ…ÙŠÙ… Ø§Ø­ØªØ±Ø§ÙÙŠØ©", en: "We provide professional design services" },
         description: { ar: "Ø®Ø¯Ù…Ø§Øª ØªØµÙ…ÙŠÙ… Ù…ØªÙ…ÙŠØ²Ø© Ù„ØªÙ„Ø¨ÙŠØ© Ø§Ø­ØªÙŠØ§Ø¬Ø§ØªÙƒ", en: "Outstanding design services to meet your needs" }
       };

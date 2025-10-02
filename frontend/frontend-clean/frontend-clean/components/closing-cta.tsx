@@ -47,7 +47,7 @@ export function ClosingCTA() {
   const fallbackData: ClosingCTAData = {
     title: {
       ar: 'اكتشف بصمتك الرقمية مع بصمة تصميم',
-      en: 'Discover Your Digital Fingerprint with Basma Design'
+      en: 'Discover Your Digital Fingerprint with Basmat Design'
     },
     subtitle: {
       ar: 'خدماتنا تبدأ من الفكرة، وتنتهي بتأثير لا يُنسى',

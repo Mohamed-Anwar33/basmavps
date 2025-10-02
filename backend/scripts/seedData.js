@@ -264,7 +264,7 @@ const seedSettings = async () => {
             description: 'شركة متخصصة في تصميم الهوية البصرية والمواقع الإلكترونية'
           },
           en: {
-            siteName: 'Basma Design',
+            siteName: 'Basmat Design',
             tagline: 'We make a difference in the design world',
             description: 'Specialized company in brand identity and website design'
           }

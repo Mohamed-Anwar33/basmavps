@@ -87,29 +87,29 @@ export function WhatMakesUsDifferent() {
   const list = (items && items.length > 0 ? items : fallbackItems)
 
   return (
-    <section className="py-24 bg-gradient-to-br from-background via-accent/5 to-primary/5 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(139, 92, 246, 0.2) 1px, transparent 0)',
+          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.3) 1px, transparent 0)',
           backgroundSize: '50px 50px'
         }}></div>
       </div>
 
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-32 right-32 w-40 h-40 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-32 left-32 w-32 h-32 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-2xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-primary/5 rounded-full blur-xl animate-pulse delay-500" />
+        <div className="absolute top-32 right-32 w-40 h-40 bg-gradient-to-r from-white/10 to-purple-300/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-32 left-32 w-32 h-32 bg-gradient-to-r from-purple-300/20 to-white/10 rounded-full blur-2xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-white/5 rounded-full blur-xl animate-pulse delay-500" />
         
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center space-y-6 mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary arabic-text text-balance leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white arabic-text text-balance leading-tight drop-shadow-lg">
             {title}
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground arabic-text max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/90 arabic-text max-w-3xl mx-auto leading-relaxed drop-shadow-md">
             {subtitle}
           </p>
         </div>
@@ -124,14 +124,14 @@ export function WhatMakesUsDifferent() {
             return (
             <Card
               key={index}
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/50 bg-card/80 backdrop-blur-sm hover:bg-card hover:border-primary/20"
+              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/40 shadow-lg"
             >
               <CardContent className="p-8 text-center space-y-6">
-                <div className={`w-20 h-20 bg-gradient-to-br ${bgGradient} rounded-3xl flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300`}>
+                <div className={`w-20 h-20 bg-gradient-to-br ${bgGradient} rounded-3xl flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300 shadow-lg`}>
                   <Icon className={`h-10 w-10 ${iconColor}`} />
                 </div>
-                <h3 className="text-xl font-bold text-foreground arabic-text group-hover:text-primary transition-colors">{feature.title}</h3>
-                <p className="text-muted-foreground arabic-text leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-bold text-white arabic-text group-hover:text-purple-300 transition-colors drop-shadow-md">{feature.title}</h3>
+                <p className="text-white/80 arabic-text leading-relaxed drop-shadow-sm">{feature.description}</p>
               </CardContent>
             </Card>
           )})}

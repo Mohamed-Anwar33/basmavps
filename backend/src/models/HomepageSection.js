@@ -111,7 +111,7 @@ const homepageSectionSchema = new mongoose.Schema({
     },
     subtitle: {
       ar: { type: String, default: 'حول فكرتك إلى واقع مع فريق بصمة تصميم المحترف' },
-      en: { type: String, default: 'Turn your idea into reality with Basma Design professional team' }
+      en: { type: String, default: 'Turn your idea into reality with Basmat Design professional team' }
     },
     description: {
       ar: { type: String, default: 'نحن هنا لنساعدك في تحقيق أهدافك التجارية من خلال حلول تصميم مبتكرة ومتميزة' },

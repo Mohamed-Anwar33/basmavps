@@ -372,7 +372,7 @@ export function ServicesPreview() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground arabic-text"
+                  className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-bold arabic-text shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 rounded-lg border-2 border-purple-600/50"
                   asChild
                 >
                   <Link href="/services">
@@ -381,8 +381,7 @@ export function ServicesPreview() {
                 </Button>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="hover:bg-accent hover:text-accent-foreground arabic-text"
+                  className="bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-purple-900 font-bold arabic-text shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 rounded-lg border-2 border-gray-300/70"
                   asChild
                 >
                   <Link href="/contact">

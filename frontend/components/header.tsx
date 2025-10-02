@@ -83,10 +83,10 @@ export function Header() {
             <div className="flex items-center gap-1 text-base">
               {mainMenu.map((item: MenuItem, idx: number, arr: MenuItem[]) => (
                 <div key={item.id} className="flex items-center gap-2">
-                  <Link href={item.href} className="whitespace-nowrap font-medium hover:text-primary transition-all duration-300 arabic-text px-2 xl:px-3 py-1.5 relative group hover:scale-105">
+                  <Link href={item.href} className="whitespace-nowrap font-bold !text-black hover:!text-[#4B2E83] transition-all duration-300 arabic-text px-2 xl:px-3 py-1.5 relative group hover:scale-105">
                     <span className="relative z-10">{getArabicText(item.label)}</span>
-                    <div className="absolute inset-0 bg-primary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 group-hover:scale-100"></div>
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
+                    <div className="absolute inset-0 bg-[#4B2E83]/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 group-hover:scale-100"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
                   </Link>
                   {idx < arr.length - 1 && <span className="text-muted-foreground">|</span>}
                 </div>
@@ -98,25 +98,25 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-2">
             {/* Currency Selector */}
             <div className="scale-90 origin-center"><CurrencySelector size="sm" /></div>
-            <Button asChild className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-medium arabic-text text-base px-4 py-2 h-auto shadow-md hover:shadow-lg transition-all duration-300">
+            <Button asChild className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] text-white font-bold arabic-text text-base px-4 py-2 h-auto shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83]">
               <Link href="/order">اطلب خدمة</Link>
             </Button>
             {!user ? (
               <>
-                <Button asChild variant="ghost" className="arabic-text">
+                <Button asChild variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10">
                   <Link href="/login">تسجيل الدخول</Link>
                 </Button>
-                <Button asChild variant="outline" className="arabic-text">
+                <Button asChild className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] text-white font-bold arabic-text text-base px-4 py-2 h-auto shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83]">
                   <Link href="/signup">حساب جديد</Link>
                 </Button>
               </>
             ) : (
               <>
-                <Button asChild variant="ghost" className="arabic-text">
+                <Button asChild variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10">
                   <Link href="/profile">صفحتي</Link>
                 </Button>
-                <span className="text-sm text-muted-foreground arabic-text">مرحبًا، {user.name?.split(' ')[0] || 'مستخدم'}</span>
-                <Button onClick={handleLogout} variant="ghost" className="arabic-text">تسجيل الخروج</Button>
+                <span className="text-sm !text-gray-700 arabic-text">مرحبًا، {user.name?.split(' ')[0] || 'مستخدم'}</span>
+                <Button onClick={handleLogout} variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10">تسجيل الخروج</Button>
               </>
             )}
           </div>
@@ -142,36 +142,36 @@ export function Header() {
                 <Link 
                   key={item.id}
                   href={item.href} 
-                  className="text-lg font-medium hover:text-primary transition-all duration-300 arabic-text py-2 relative group hover:scale-105"
+                  className="text-lg font-bold !text-black hover:!text-[#4B2E83] transition-all duration-300 arabic-text py-2 relative group hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="relative z-10">{getArabicText(item.label)}</span>
-                  <div className="absolute inset-0 bg-primary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 group-hover:scale-100"></div>
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
+                  <div className="absolute inset-0 bg-[#4B2E83]/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 group-hover:scale-100"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
                 </Link>
               ))}
               <Button
                 asChild
-                className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-medium arabic-text w-full text-lg py-3 h-auto mt-4 shadow-md hover:shadow-lg transition-all duration-300"
+                className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] text-white font-bold arabic-text w-full text-lg py-3 h-auto mt-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83]"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <Link href="/order">اطلب خدمة</Link>
               </Button>
               {!user ? (
                 <div className="grid grid-cols-2 gap-2">
-                  <Button asChild variant="ghost" className="arabic-text" onClick={() => setIsMenuOpen(false)}>
+                  <Button asChild variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10" onClick={() => setIsMenuOpen(false)}>
                     <Link href="/login">تسجيل الدخول</Link>
                   </Button>
-                  <Button asChild variant="outline" className="arabic-text" onClick={() => setIsMenuOpen(false)}>
+                  <Button asChild className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] text-white font-bold arabic-text text-base px-4 py-2 h-auto shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83]" onClick={() => setIsMenuOpen(false)}>
                     <Link href="/signup">حساب جديد</Link>
                   </Button>
                 </div>
               ) : (
                 <div className="grid gap-2">
-                  <Button asChild variant="ghost" className="arabic-text" onClick={() => setIsMenuOpen(false)}>
+                  <Button asChild variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10" onClick={() => setIsMenuOpen(false)}>
                     <Link href="/profile">صفحتي</Link>
                   </Button>
-                  <Button variant="ghost" className="arabic-text" onClick={() => { setIsMenuOpen(false); handleLogout() }}>
+                  <Button variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10" onClick={() => { setIsMenuOpen(false); handleLogout() }}>
                     تسجيل الخروج
                   </Button>
                 </div>

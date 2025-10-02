@@ -47,7 +47,7 @@ services:
       SMTP_USER: basmat.design0@gmail.com
       SMTP_PASS: "jjdy tslv utyy kdrf"
       FROM_EMAIL: basmat.design0@gmail.com
-      FROM_NAME: "Basma Design"
+      FROM_NAME: "Basmat Design"
     volumes:
       - ./uploads:/app/uploads
       - ./logs:/app/logs

@@ -80,7 +80,7 @@ export const createPayPalOrder = async (orderData) => {
       application_context: {
         return_url: `${process.env.FRONTEND_URL}/order/success?provider=paypal`,
         cancel_url: `${process.env.FRONTEND_URL}/order/cancel?provider=paypal`,
-        brand_name: 'Basma Design',
+        brand_name: 'Basmat Design',
         locale: 'ar-SA',
         landing_page: 'BILLING',
         shipping_preference: 'NO_SHIPPING',

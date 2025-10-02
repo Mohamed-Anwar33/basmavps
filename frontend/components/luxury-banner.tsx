@@ -183,16 +183,16 @@ export function LuxuryBanner({
                 return (
                   <div className="relative group">
                     {/* Button Glow Effect */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-white/20 via-white/10 to-white/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                    <div className="absolute -inset-1 bg-gradient-to-r from-white/20 via-white/10 to-white/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-500" />
                     
                     <Button 
                       size="lg" 
-                      className="relative bg-gradient-to-r from-[#4b2e83] to-[#7a4db3] backdrop-blur-sm text-white hover:from-[#4b2e83]/90 hover:to-[#7a4db3]/90 font-bold arabic-text group whitespace-nowrap shadow-2xl hover:shadow-[#7a4db3]/30 transition-all duration-500 hover:scale-105 text-lg px-6 py-3 h-auto rounded-xl border border-[#7a4db3]/30" 
+                      className="relative bg-gradient-to-r from-[#4b2e83] to-[#7a4db3] backdrop-blur-sm text-white hover:from-[#4b2e83]/90 hover:to-[#7a4db3]/90 font-bold arabic-text group whitespace-nowrap shadow-2xl hover:shadow-[#7a4db3]/30 transition-all duration-500 hover:scale-105 text-lg px-6 py-3 h-auto rounded-lg border border-[#7a4db3]/30 !text-white" 
                       asChild
                     >
                       {isInternal ? (
                         <Link href={ctaLink} className="flex items-center gap-3">
-                          <span className="relative">
+                          <span className="relative text-white font-bold">
                             {ctaText}
                             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                           </span>
@@ -202,7 +202,7 @@ export function LuxuryBanner({
                         </Link>
                       ) : (
                         <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-                          <span className="relative">
+                          <span className="relative text-white font-bold">
                             {ctaText}
                             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                           </span>

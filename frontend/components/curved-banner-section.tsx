@@ -168,13 +168,13 @@ export default function CurvedBannerSection({
   const getButtonStyle = (style: string) => {
     switch (style) {
       case 'primary':
-        return 'bg-gradient-to-r from-amber-50 to-orange-50 text-purple-900 hover:from-amber-100 hover:to-orange-100 shadow-xl hover:shadow-2xl font-extrabold border-2 border-amber-200/50';
+        return 'bg-gradient-to-r from-purple-700 to-purple-900 text-white hover:from-purple-600 hover:to-purple-800 shadow-xl hover:shadow-2xl font-extrabold border-2 border-purple-600/50 !text-white';
       case 'secondary':
-        return 'bg-gradient-to-r from-yellow-50/30 to-amber-50/30 text-white border-2 border-amber-200/60 hover:from-yellow-50/50 hover:to-amber-50/50 backdrop-blur-sm font-bold';
+        return 'bg-gradient-to-r from-purple-800/80 to-purple-900/80 text-white border-2 border-purple-600/60 hover:from-purple-700/90 hover:to-purple-800/90 backdrop-blur-sm font-bold !text-white';
       case 'outline':
-        return 'border-2 border-amber-100 text-amber-50 hover:bg-gradient-to-r hover:from-amber-50 hover:to-orange-50 hover:text-purple-900 font-bold';
+        return 'border-2 border-purple-400 text-white hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-900 hover:text-white font-bold !text-white';
       default:
-        return 'bg-gradient-to-r from-amber-50 to-orange-50 text-purple-900 hover:from-amber-100 hover:to-orange-100 shadow-xl hover:shadow-2xl font-extrabold border-2 border-amber-200/50';
+        return 'bg-gradient-to-r from-purple-700 to-purple-900 text-white hover:from-purple-600 hover:to-purple-800 shadow-xl hover:shadow-2xl font-extrabold border-2 border-purple-600/50 !text-white';
     }
   };
 
@@ -300,9 +300,9 @@ export default function CurvedBannerSection({
               <div className="pt-6">
                 <a
                   href={banner.ctaButton.link}
-                  className={`inline-flex items-center gap-4 px-10 md:px-12 py-5 md:py-6 rounded-full text-xl md:text-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${getButtonStyle(banner.ctaButton.style)} arabic-text`}
+                  className={`inline-flex items-center gap-4 px-10 md:px-12 py-5 md:py-6 rounded-lg text-xl md:text-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${getButtonStyle(banner.ctaButton.style)} arabic-text`}
                 >
-                  <span>{banner.ctaButton.text}</span>
+                  <span className="text-white font-bold">{banner.ctaButton.text}</span>
                   <ArrowLeft className="w-8 h-8 rtl-flip" />
                 </a>
               </div>

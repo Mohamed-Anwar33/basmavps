@@ -24,14 +24,14 @@ const templates = {
   'email-verification': {
     subject: {
       ar: 'تأكيد البريد الإلكتروني - بصمة تصميم',
-      en: 'Email Verification - Basma Design'
+      en: 'Email Verification - Basmat Design'
     },
     html: (data) => `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f8f9fa;">
         <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
           <div style="text-align: center; margin-bottom: 30px;">
             <h1 style="color: #4b2e83; margin: 0;">بصمة تصميم</h1>
-            <h2 style="color: #7a4db3; margin: 5px 0 0 0; font-weight: 300;">Basma Design</h2>
+            <h2 style="color: #7a4db3; margin: 5px 0 0 0; font-weight: 300;">Basmat Design</h2>
           </div>
           
           <div style="text-align: center; margin-bottom: 30px;">
@@ -64,7 +64,7 @@ const templates = {
           
           <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
             <p style="color: #999; font-size: 14px; margin: 0;">
-              فريق بصمة تصميم | Basma Design Team
+              فريق بصمة تصميم | Basmat Design Team
             </p>
           </div>
         </div>
@@ -75,17 +75,17 @@ const templates = {
   welcome: {
     subject: {
       ar: 'مرحباً بك في بصمة تصميم',
-      en: 'Welcome to Basma Design'
+      en: 'Welcome to Basmat Design'
     },
     html: (data) => `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #4b2e83 0%, #7a4db3 100%); color: white; padding: 30px; text-align: center;">
           <h1>مرحباً ${data.name}</h1>
-          <h2>Welcome to Basma Design</h2>
+          <h2>Welcome to Basmat Design</h2>
         </div>
         <div style="padding: 30px; background: #f9f9f9;">
           <p>شكراً لانضمامك إلى بصمة تصميم! نحن متحمسون لمساعدتك في تحقيق رؤيتك الإبداعية.</p>
-          <p>Thank you for joining Basma Design! We're excited to help you bring your creative vision to life.</p>
+          <p>Thank you for joining Basmat Design! We're excited to help you bring your creative vision to life.</p>
           
           <div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px;">
             <h3>ما يمكنك فعله الآن:</h3>
@@ -105,7 +105,7 @@ const templates = {
         </div>
         <div style="background: #333; color: white; padding: 20px; text-align: center; font-size: 14px;">
           <p>بصمة تصميم - حيث تتحقق الأحلام الإبداعية</p>
-          <p>Basma Design - Where Creative Dreams Come True</p>
+          <p>Basmat Design - Where Creative Dreams Come True</p>
         </div>
       </div>
     `
@@ -261,7 +261,7 @@ const templates = {
         <div style="background: #1e293b; color: white; padding: 30px; text-align: center; border-radius: 0 0 12px 12px;">
           <div style="margin-bottom: 20px;">
             <h2 style="margin: 0; font-size: 24px; color: #a855f7;">بصمة تصميم</h2>
-            <p style="margin: 5px 0 0 0; opacity: 0.8;">Basma Design - Where Dreams Become Reality</p>
+            <p style="margin: 5px 0 0 0; opacity: 0.8;">Basmat Design - Where Dreams Become Reality</p>
           </div>
           
           <div style="border-top: 1px solid #374151; padding-top: 20px; margin-top: 20px;">
@@ -442,12 +442,12 @@ export const sendTestEmail = async (to) => {
     
     const result = await sendEmail({
       to,
-      subject: 'Test Email - Basma Design',
+      subject: 'Test Email - Basmat Design',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f5f5f5;">
           <div style="background: linear-gradient(135deg, #4b2e83 0%, #7a4db3 100%); color: white; padding: 30px; text-align: center; border-radius: 8px;">
             <h1>اختبار البريد الإلكتروني</h1>
-            <h2>Email Test - Basma Design</h2>
+            <h2>Email Test - Basmat Design</h2>
           </div>
           <div style="background: white; padding: 30px; border-radius: 8px; margin-top: 20px;">
             <p>مرحباً،</p>
@@ -461,7 +461,7 @@ export const sendTestEmail = async (to) => {
               <li>البريد: ${process.env.FROM_EMAIL}</li>
             </ul>
             <p style="margin-top: 30px; text-align: center; color: #666;">
-              بصمة تصميم - Basma Design
+              بصمة تصميم - Basmat Design
             </p>
           </div>
         </div>

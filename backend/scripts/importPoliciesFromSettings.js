@@ -78,7 +78,7 @@ async function importPoliciesFromSettings() {
           metaTitle: titleMappings[setting.key] || { ar: setting.key, en: setting.key },
           metaDescription: {
             ar: `سياسة ${titleMappings[setting.key]?.ar || setting.key} لشركة بصمة تصميم`,
-            en: `${titleMappings[setting.key]?.en || setting.key} for Basma Design`
+            en: `${titleMappings[setting.key]?.en || setting.key} for Basmat Design`
           },
           lastReviewDate: setting.updatedAt || setting.createdAt,
           nextReviewDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 year from now
@@ -120,12 +120,13 @@ async function importPoliciesFromSettings() {
 
     if (imported.length > 0) {
       imported.forEach(item => {
+        console.log(item);
       });
     }
 
     if (skipped.length > 0) {
       skipped.forEach(item => {
-        `);
+        console.log(item);
       });
     }
 
@@ -154,7 +155,7 @@ async function importPoliciesFromSettings() {
 }
 
 // Run the import if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === 'file://${process.argv[1]}') {
   importPoliciesFromSettings()
     .then(() => process.exit(0))
     .catch(() => process.exit(1));

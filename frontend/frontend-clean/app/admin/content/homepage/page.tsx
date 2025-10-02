@@ -137,7 +137,7 @@ export default function HomepageManagementPage() {
   const [heroData, setHeroData] = useState<HeroSectionData>({
     title: { ar: 'صمّم بصمتك الخاصة.', en: 'Design Your Own Mark.' },
     subtitle: { ar: 'ابدأ رحلتك نحو هوية رقمية لا تُنسى.', en: 'Start your journey to an unforgettable digital identity.' },
-    description: { ar: 'في بصمة تصميم، نحول أفكارك إلى تصاميم استثنائية تعكس شخصيتك وتحقق أهدافك', en: 'At Basma Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
+    description: { ar: 'في بصمة تصميم، نحول أفكارك إلى تصاميم استثنائية تعكس شخصيتك وتحقق أهدافك', en: 'At Basmat Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
     ctaButton: {
       text: { ar: 'تواصل معنا', en: 'Contact Us' },
       link: '/contact',
@@ -181,7 +181,7 @@ export default function HomepageManagementPage() {
   });
 
   const [whatMakesUsData, setWhatMakesUsData] = useState<WhatMakesUsDifferentData>({
-    title: { ar: 'لماذا بصمة تصميم؟', en: 'Why Basma Design?' },
+    title: { ar: 'لماذا بصمة تصميم؟', en: 'Why Basmat Design?' },
     subtitle: { ar: 'لأننا نصمم ليبقى الأثر، ونكتب لنحرك الشعور، ونبني حضورًا رقمياً يعبر عنك.', en: 'Because we design to leave an impact, write to move emotions, and build a digital presence that expresses you.' },
     items: [
       {

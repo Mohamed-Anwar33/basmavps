@@ -46,7 +46,7 @@ const getRealPageContent = (pageType) => {
     hero: {
       title: { ar: 'ØµÙ…Ù‘Ù… Ø¨ØµÙ…ØªÙƒ Ø§Ù„Ø®Ø§ØµØ©.', en: 'Design Your Own Mark.' },
       subtitle: { ar: 'Ø§Ø¨Ø¯Ø£ Ø±Ø­Ù„ØªÙƒ Ù†Ø­Ùˆ Ù‡ÙˆÙŠØ© Ø±Ù‚Ù…ÙŠØ© Ù„Ø§ ØªÙÙ†Ø³Ù‰.', en: 'Start Your Journey Towards an Unforgettable Digital Identity.' },
-      description: { ar: 'ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…ØŒ Ù†Ø­ÙˆÙ„ Ø£ÙÙƒØ§Ø±Ùƒ Ø¥Ù„Ù‰ ØªØµØ§Ù…ÙŠÙ… Ø§Ø³ØªØ«Ù†Ø§Ø¦ÙŠØ© ØªØ¹ÙƒØ³ Ø´Ø®ØµÙŠØªÙƒ ÙˆØªØ­Ù‚Ù‚ Ø£Ù‡Ø¯Ø§ÙÙƒ', en: 'At Basma Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
+      description: { ar: 'ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…ØŒ Ù†Ø­ÙˆÙ„ Ø£ÙÙƒØ§Ø±Ùƒ Ø¥Ù„Ù‰ ØªØµØ§Ù…ÙŠÙ… Ø§Ø³ØªØ«Ù†Ø§Ø¦ÙŠØ© ØªØ¹ÙƒØ³ Ø´Ø®ØµÙŠØªÙƒ ÙˆØªØ­Ù‚Ù‚ Ø£Ù‡Ø¯Ø§ÙÙƒ', en: 'At Basmat Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
       ctaButton: {
         text: { ar: 'ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§', en: 'Contact Us' },
         link: '/contact'
@@ -82,7 +82,7 @@ const getRealPageContent = (pageType) => {
           data: {
             badge: { ar: 'Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø·Ù„Ø¨ Ø§Ù„Ø´Ø§Ù…Ù„', en: 'Ordering Guide' },
             title: { ar: 'ÙƒÙŠÙ ØªØ·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒØŸ', en: 'How to Order?' },
-            description: { ar: 'ÙÙŠ "Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…"ØŒ Ù†Ø¬Ø¹Ù„ Ø·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒ Ø³Ù‡Ù„Ø§Ù‹ ÙˆØ³Ø±ÙŠØ¹Ø§Ù‹ Ø¨Ø®Ø·ÙˆØ§Øª ÙˆØ§Ø¶Ø­Ø© ÙˆÙ…Ø¨Ø§Ø´Ø±Ø©', en: 'At Basma Design, ordering is easy and fast with clear steps.' }
+            description: { ar: 'ÙÙŠ "Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…"ØŒ Ù†Ø¬Ø¹Ù„ Ø·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒ Ø³Ù‡Ù„Ø§Ù‹ ÙˆØ³Ø±ÙŠØ¹Ø§Ù‹ Ø¨Ø®Ø·ÙˆØ§Øª ÙˆØ§Ø¶Ø­Ø© ÙˆÙ…Ø¨Ø§Ø´Ø±Ø©', en: 'At Basmat Design, ordering is easy and fast with clear steps.' }
           },
           order: 0,
           isActive: true
@@ -134,7 +134,7 @@ const getRealPageContent = (pageType) => {
         }
       ],
       metadata: {
-        title: { ar: 'ÙƒÙŠÙ ØªØ·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒ | Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…', en: 'How to Order | Basma Design' },
+        title: { ar: 'ÙƒÙŠÙ ØªØ·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒ | Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…', en: 'How to Order | Basmat Design' },
         description: { ar: 'Ø§ØªØ¨Ø¹ Ø®Ø·ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© Ù„Ø·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒ...', en: 'Follow simple steps to order your service.' },
         keywords: ['Ø·Ù„Ø¨ Ø®Ø¯Ù…Ø©','Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…','how to order']
       }

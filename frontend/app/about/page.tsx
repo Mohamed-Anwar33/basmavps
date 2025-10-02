@@ -428,13 +428,28 @@ export default async function AboutPage() {
 
       
       {/* Values Section (dynamic if provided) */}
-      <section className="py-20 relative z-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700 relative overflow-hidden z-20">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.3) 1px, transparent 0)',
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        {/* Floating Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-32 right-32 w-40 h-40 bg-gradient-to-r from-white/10 to-purple-300/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-32 left-32 w-32 h-32 bg-gradient-to-r from-purple-300/20 to-white/10 rounded-full blur-2xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-white/5 rounded-full blur-xl animate-pulse delay-500" />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 arabic-text">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-text drop-shadow-lg">
               قيمنا الأساسية
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto arabic-text">
+            <p className="text-lg text-white/90 max-w-2xl mx-auto arabic-text drop-shadow-md">
               المبادئ التي توجه كل قرار نتخذه وكل عمل نقوم به
             </p>
           </div>
@@ -476,32 +491,32 @@ export default async function AboutPage() {
               return (
                 <Card
                   key={index}
-                  className="h-full bg-card/80 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-center group overflow-hidden relative"
+                  className="h-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-center group overflow-hidden relative shadow-lg"
                 >
                   <CardContent className="p-7 flex flex-col h-full">
                     {/* Decorative top bar */}
-                    <div className="h-1 w-12 mx-auto mb-6 rounded-full bg-gradient-to-r from-primary to-accent group-hover:from-accent group-hover:to-primary transition-colors"></div>
+                    <div className="h-1 w-12 mx-auto mb-6 rounded-full bg-gradient-to-r from-white/60 to-purple-300 group-hover:from-purple-300 group-hover:to-white/60 transition-colors"></div>
 
                     {/* Icon with ring */}
                     <div className="mx-auto mb-6 relative">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/12 to-accent/12 border border-primary/20 shadow-sm flex items-center justify-center">
-                        <Icon className="h-8 w-8 text-primary" />
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/20 to-white/10 border border-white/30 shadow-lg flex items-center justify-center">
+                        <Icon className="h-8 w-8 text-white" />
                       </div>
-                      <div className="pointer-events-none absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/0 to-accent/0 opacity-0 group-hover:opacity-20 blur-lg transition-opacity"></div>
+                      <div className="pointer-events-none absolute -inset-1 rounded-3xl bg-gradient-to-br from-white/0 to-white/0 opacity-0 group-hover:opacity-20 blur-lg transition-opacity"></div>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-primary mb-3 arabic-text group-hover:text-accent transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-3 arabic-text group-hover:text-purple-300 transition-colors drop-shadow-md">
                       {value.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-muted-foreground leading-relaxed arabic-text text-sm">
+                    <p className="text-white/80 leading-relaxed arabic-text text-sm drop-shadow-sm">
                       {value.description}
                     </p>
 
                     <div className="mt-auto pt-6">
-                      <div className="mx-auto h-px w-16 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+                      <div className="mx-auto h-px w-16 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                     </div>
                   </CardContent>
                 </Card>

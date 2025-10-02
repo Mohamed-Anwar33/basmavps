@@ -9,7 +9,7 @@ const curvedBannersData = [
   {
     title: {
       ar: 'مرحباً بك في بصمة تصميم',
-      en: 'Welcome to Basma Design'
+      en: 'Welcome to Basmat Design'
     },
     subtitle: {
       ar: 'نحن نصنع التميز في كل تصميم',
@@ -188,7 +188,7 @@ const curvedBannersData = [
   {
     title: {
       ar: 'عن بصمة تصميم',
-      en: 'About Basma Design'
+      en: 'About Basmat Design'
     },
     subtitle: {
       ar: 'رؤيتنا هي أن نكون الخيار الأول للتصميم الإبداعي',

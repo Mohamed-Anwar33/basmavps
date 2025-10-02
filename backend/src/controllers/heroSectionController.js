@@ -12,7 +12,7 @@ export const getAdminHeroSection = async (req, res) => {
       const defaultHeroContent = {
         title: { ar: 'ØµÙ…Ù‘Ù… Ø¨ØµÙ…ØªÙƒ Ø§Ù„Ø®Ø§ØµØ©.', en: 'Design Your Own Mark.' },
         subtitle: { ar: 'Ø§Ø¨Ø¯Ø£ Ø±Ø­Ù„ØªÙƒ Ù†Ø­Ùˆ Ù‡ÙˆÙŠØ© Ø±Ù‚Ù…ÙŠØ© Ù„Ø§ ØªÙÙ†Ø³Ù‰.', en: 'Start Your Journey Towards an Unforgettable Digital Identity.' },
-        description: { ar: 'ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…ØŒ Ù†Ø­ÙˆÙ„ Ø£ÙÙƒØ§Ø±Ùƒ Ø¥Ù„Ù‰ ØªØµØ§Ù…ÙŠÙ… Ø§Ø³ØªØ«Ù†Ø§Ø¦ÙŠØ© ØªØ¹ÙƒØ³ Ø´Ø®ØµÙŠØªÙƒ ÙˆØªØ­Ù‚Ù‚ Ø£Ù‡Ø¯Ø§ÙÙƒ', en: 'At Basma Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
+        description: { ar: 'ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…ØŒ Ù†Ø­ÙˆÙ„ Ø£ÙÙƒØ§Ø±Ùƒ Ø¥Ù„Ù‰ ØªØµØ§Ù…ÙŠÙ… Ø§Ø³ØªØ«Ù†Ø§Ø¦ÙŠØ© ØªØ¹ÙƒØ³ Ø´Ø®ØµÙŠØªÙƒ ÙˆØªØ­Ù‚Ù‚ Ø£Ù‡Ø¯Ø§ÙÙƒ', en: 'At Basmat Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
         ctaButton: {
           text: { ar: 'ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§', en: 'Contact Us' },
           link: '/contact',
@@ -75,7 +75,7 @@ export const getHeroSection = async (req, res) => {
       const defaultHeroContent = {
         title: { ar: 'ØµÙ…Ù‘Ù… Ø¨ØµÙ…ØªÙƒ Ø§Ù„Ø®Ø§ØµØ©.', en: 'Design Your Own Mark.' },
         subtitle: { ar: 'Ø§Ø¨Ø¯Ø£ Ø±Ø­Ù„ØªÙƒ Ù†Ø­Ùˆ Ù‡ÙˆÙŠØ© Ø±Ù‚Ù…ÙŠØ© Ù„Ø§ ØªÙÙ†Ø³Ù‰.', en: 'Start Your Journey Towards an Unforgettable Digital Identity.' },
-        description: { ar: 'ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…ØŒ Ù†Ø­ÙˆÙ„ Ø£ÙÙƒØ§Ø±Ùƒ Ø¥Ù„Ù‰ ØªØµØ§Ù…ÙŠÙ… Ø§Ø³ØªØ«Ù†Ø§Ø¦ÙŠØ© ØªØ¹ÙƒØ³ Ø´Ø®ØµÙŠØªÙƒ ÙˆØªØ­Ù‚Ù‚ Ø£Ù‡Ø¯Ø§ÙÙƒ', en: 'At Basma Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
+        description: { ar: 'ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…ØŒ Ù†Ø­ÙˆÙ„ Ø£ÙÙƒØ§Ø±Ùƒ Ø¥Ù„Ù‰ ØªØµØ§Ù…ÙŠÙ… Ø§Ø³ØªØ«Ù†Ø§Ø¦ÙŠØ© ØªØ¹ÙƒØ³ Ø´Ø®ØµÙŠØªÙƒ ÙˆØªØ­Ù‚Ù‚ Ø£Ù‡Ø¯Ø§ÙÙƒ', en: 'At Basmat Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
         ctaButton: {
           text: { ar: 'ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§', en: 'Contact Us' },
           link: '/contact'
@@ -121,7 +121,7 @@ export const getHeroSection = async (req, res) => {
     const responseData = {
       title: toLocalized(heroData.title, { ar: 'ØµÙ…Ù‘Ù… Ø¨ØµÙ…ØªÙƒ Ø§Ù„Ø®Ø§ØµØ©.', en: 'Design Your Own Mark.' }),
       subtitle: toLocalized(heroData.subtitle, { ar: 'Ø§Ø¨Ø¯Ø£ Ø±Ø­Ù„ØªÙƒ Ù†Ø­Ùˆ Ù‡ÙˆÙŠØ© Ø±Ù‚Ù…ÙŠØ© Ù„Ø§ ØªÙÙ†Ø³Ù‰.', en: 'Start Your Journey Towards an Unforgettable Digital Identity.' }),
-      description: toLocalized(heroData.description, { ar: 'ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…ØŒ Ù†Ø­ÙˆÙ„ Ø£ÙÙƒØ§Ø±Ùƒ Ø¥Ù„Ù‰ ØªØµØ§Ù…ÙŠÙ… Ø§Ø³ØªØ«Ù†Ø§Ø¦ÙŠØ© ØªØ¹ÙƒØ³ Ø´Ø®ØµÙŠØªÙƒ ÙˆØªØ­Ù‚Ù‚ Ø£Ù‡Ø¯Ø§ÙÙƒ', en: 'At Basma Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' }),
+      description: toLocalized(heroData.description, { ar: 'ÙÙŠ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…ØŒ Ù†Ø­ÙˆÙ„ Ø£ÙÙƒØ§Ø±Ùƒ Ø¥Ù„Ù‰ ØªØµØ§Ù…ÙŠÙ… Ø§Ø³ØªØ«Ù†Ø§Ø¦ÙŠØ© ØªØ¹ÙƒØ³ Ø´Ø®ØµÙŠØªÙƒ ÙˆØªØ­Ù‚Ù‚ Ø£Ù‡Ø¯Ø§ÙÙƒ', en: 'At Basmat Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' }),
       ctaButton: {
         text: toLocalized(heroData?.ctaButton?.text, { ar: 'ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§', en: 'Contact Us' }),
         link: heroData?.ctaButton?.link || '/contact',

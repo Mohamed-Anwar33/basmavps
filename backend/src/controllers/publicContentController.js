@@ -101,7 +101,7 @@ function buildDefaultHowToOrderContent() {
           title: { ar: 'ÙƒÙŠÙ ØªØ·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒØŸ', en: 'How to order your service?' },
           description: {
             ar: 'ÙÙŠ "Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…"ØŒ Ù†Ø¬Ø¹Ù„ Ø·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒ Ø³Ù‡Ù„Ø§Ù‹ ÙˆØ³Ø±ÙŠØ¹Ø§Ù‹ Ø¨Ø®Ø·ÙˆØ§Øª ÙˆØ§Ø¶Ø­Ø© ÙˆÙ…Ø¨Ø§Ø´Ø±Ø©',
-            en: 'At Basma Design, we make ordering your service easy and fast with clear steps.'
+            en: 'At Basmat Design, we make ordering your service easy and fast with clear steps.'
           },
           background: { type: 'grid', url: '/grid.svg' }
         },
@@ -194,7 +194,7 @@ function buildDefaultHowToOrderContent() {
         type: 'cta',
         data: {
           title: { ar: 'Ø¬Ø§Ù‡Ø² Ù„Ø¨Ø¯Ø¡ Ù…Ø´Ø±ÙˆØ¹ÙƒØŸ', en: 'Ready to start your project?' },
-          description: { ar: 'Ø§Ø®ØªØ± Ø®Ø¯Ù…ØªÙƒ Ø§Ù„Ø¢Ù† ÙˆØ§Ø¨Ø¯Ø£ Ø±Ø­Ù„Ø© Ø¥Ø¨Ø¯Ø§Ø¹ÙŠØ© Ù…Ø¹ ÙØ±ÙŠÙ‚ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…', en: 'Choose your service now and start a creative journey with Basma Design.' },
+          description: { ar: 'Ø§Ø®ØªØ± Ø®Ø¯Ù…ØªÙƒ Ø§Ù„Ø¢Ù† ÙˆØ§Ø¨Ø¯Ø£ Ø±Ø­Ù„Ø© Ø¥Ø¨Ø¯Ø§Ø¹ÙŠØ© Ù…Ø¹ ÙØ±ÙŠÙ‚ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…', en: 'Choose your service now and start a creative journey with Basmat Design.' },
           button: { text: { ar: 'ØªØµÙØ­ Ø§Ù„Ø®Ø¯Ù…Ø§Øª', en: 'Browse Services' }, link: '/services', style: 'primary' },
           badgeIcon: 'sparkles'
         },
@@ -204,10 +204,10 @@ function buildDefaultHowToOrderContent() {
       }
     ],
     metadata: {
-      title: { ar: 'ÙƒÙŠÙ ØªØ·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒ | Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…', en: 'How to Order | Basma Design' },
+      title: { ar: 'ÙƒÙŠÙ ØªØ·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒ | Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…', en: 'How to Order | Basmat Design' },
       description: {
         ar: 'Ø§ØªØ¨Ø¹ Ø®Ø·ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© Ù„Ø·Ù„Ø¨ Ø®Ø¯Ù…ØªÙƒ Ù…Ù† Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…: Ø§Ø®ØªØ± Ø§Ù„Ø®Ø¯Ù…Ø©ØŒ Ø§Ø¯ÙØ¹ Ø¨Ø£Ù…Ø§Ù†ØŒ ÙˆØ§Ø¨Ø¯Ø£ Ø§Ù„ØªÙ†ÙÙŠØ° ÙÙˆØ±Ø§Ù‹.',
-        en: 'Follow simple steps to order your service from Basma Design: choose, pay securely, and start immediately.'
+        en: 'Follow simple steps to order your service from Basmat Design: choose, pay securely, and start immediately.'
       },
       keywords: ['how to order', 'Ø·Ù„Ø¨ Ø®Ø¯Ù…Ø©', 'Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…', 'Ø®Ø¯Ù…Ø§Øª ØªØµÙ…ÙŠÙ…'],
       ogImage: '',

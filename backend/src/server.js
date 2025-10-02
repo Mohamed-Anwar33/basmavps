@@ -139,12 +139,12 @@ const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Basma Design API',
+      title: 'Basmat Design API',
       version: '1.0.0',
-      description: 'Production-ready backend API for Basma Design website',
+      description: 'Production-ready backend API for Basmat Design website',
       contact: {
-        name: 'Basma Design',
-        email: 'admin@basmadesign.com'
+        name: 'Basmat Design',
+        email: 'admin@basmatadesign.com'
       }
     },
     servers: [

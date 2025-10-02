@@ -135,7 +135,7 @@ const initializeHomepageSections = async () => {
           },
           subtitle: {
             ar: 'حول فكرتك إلى واقع مع فريق بصمة تصميم المحترف',
-            en: 'Turn your idea into reality with Basma Design professional team'
+            en: 'Turn your idea into reality with Basmat Design professional team'
           },
           description: {
             ar: 'نحن هنا لنساعدك في تحقيق أهدافك التجارية من خلال حلول تصميم مبتكرة ومتميزة',

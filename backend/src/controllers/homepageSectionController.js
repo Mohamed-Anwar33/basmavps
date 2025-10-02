@@ -310,7 +310,7 @@ export const initializeDefaultSections = async (req, res) => {
           },
           subtitle: {
             ar: 'Ø­ÙˆÙ„ ÙÙƒØ±ØªÙƒ Ø¥Ù„Ù‰ ÙˆØ§Ù‚Ø¹ Ù…Ø¹ ÙØ±ÙŠÙ‚ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ… Ø§Ù„Ù…Ø­ØªØ±Ù',
-            en: 'Turn your idea into reality with Basma Design professional team'
+            en: 'Turn your idea into reality with Basmat Design professional team'
           },
           description: {
             ar: 'Ù†Ø­Ù† Ù‡Ù†Ø§ Ù„Ù†Ø³Ø§Ø¹Ø¯Ùƒ ÙÙŠ ØªØ­Ù‚ÙŠÙ‚ Ø£Ù‡Ø¯Ø§ÙÙƒ Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ© Ù…Ù† Ø®Ù„Ø§Ù„ Ø­Ù„ÙˆÙ„ ØªØµÙ…ÙŠÙ… Ù…Ø¨ØªÙƒØ±Ø© ÙˆÙ…ØªÙ…ÙŠØ²Ø©',

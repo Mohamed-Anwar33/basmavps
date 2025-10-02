@@ -1,7 +1,7 @@
 {
-  "name": "basma-design-backend",
+  "name": "basmat-design-backend",
   "version": "1.0.0",
-  "description": "Production-ready backend for Basma Design website",
+  "description": "Production-ready backend for Basmat Design website",
   "main": "src/server.js",
   "type": "module",
   "scripts": {
@@ -45,7 +45,7 @@
     "cms",
     "api"
   ],
-  "author": "Basma Design",
+  "author": "Basmat Design",
   "license": "MIT",
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.3",

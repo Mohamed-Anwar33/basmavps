@@ -76,7 +76,7 @@ export const getAdminWhatMakesUsDifferent = async (req, res) => {
         success: true,
         title: {
           ar: "Ù„Ù…Ø§Ø°Ø§ Ø¨ØµÙ…Ø© ØªØµÙ…ÙŠÙ…ØŸ",
-          en: "Why Basma Design?"
+          en: "Why Basmat Design?"
         },
         subtitle: {
           ar: "Ù„Ø£Ù†Ù†Ø§ Ù†ØµÙ…Ù… Ù„ÙŠØ¨Ù‚Ù‰ Ø§Ù„Ø£Ø«Ø±ØŒ ÙˆÙ†ÙƒØªØ¨ Ù„Ù†Ø­Ø±Ùƒ Ø§Ù„Ø´Ø¹ÙˆØ±ØŒ ÙˆÙ†Ø¨Ù†ÙŠ Ø­Ø¶ÙˆØ±Ù‹Ø§ Ø±Ù‚Ù…ÙŠØ§Ù‹ ÙŠØ¹Ø¨Ø± Ø¹Ù†Ùƒ.",

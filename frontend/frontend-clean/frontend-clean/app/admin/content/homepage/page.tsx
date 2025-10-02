@@ -9,7 +9,7 @@ import {
   Trophy, Rocket, Globe, Settings, Camera, MessageCircle
 } from 'lucide-react';
 import { useAdminAuth } from '../../../../contexts/admin-auth-context';
-import { apiFetch } from '../../../../lib/api';
+import { apiFetch } from '../../../../../lib/api';
 
 const { TextArea } = Input;
 
@@ -137,7 +137,7 @@ export default function HomepageManagementPage() {
   const [heroData, setHeroData] = useState<HeroSectionData>({
     title: { ar: 'صمّم بصمتك الخاصة.', en: 'Design Your Own Mark.' },
     subtitle: { ar: 'ابدأ رحلتك نحو هوية رقمية لا تُنسى.', en: 'Start your journey to an unforgettable digital identity.' },
-    description: { ar: 'في بصمة تصميم، نحول أفكارك إلى تصاميم استثنائية تعكس شخصيتك وتحقق أهدافك', en: 'At Basma Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
+    description: { ar: 'في بصمة تصميم، نحول أفكارك إلى تصاميم استثنائية تعكس شخصيتك وتحقق أهدافك', en: 'At Basmat Design, we turn your ideas into exceptional designs that reflect your personality and achieve your goals' },
     ctaButton: {
       text: { ar: 'تواصل معنا', en: 'Contact Us' },
       link: '/contact',

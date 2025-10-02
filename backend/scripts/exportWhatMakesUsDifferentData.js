@@ -21,7 +21,7 @@ const exportWhatMakesUsDifferentData = async () => {
     const whatMakesUsDifferentData = {
       title: {
         ar: "لماذا بصمة تصميم؟",
-        en: "Why Basma Design?"
+        en: "Why Basmat Design?"
       },
       subtitle: {
         ar: "لأننا نصمم ليبقى الأثر، ونكتب لنحرك الشعور، ونبني حضورًا رقمياً يعبر عنك.",
