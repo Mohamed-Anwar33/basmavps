@@ -53,11 +53,11 @@ export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    // Set up periodic session check every 5 minutes, but only if authenticated
+    // Set up periodic session check every 30 minutes, but only if authenticated
     if (isAuthenticated && pathname.startsWith('/admin') && pathname !== '/admin/login') {
       const sessionCheckInterval = setInterval(() => {
         checkAdminAuth();
-      }, 5 * 60 * 1000); // 5 minutes
+      }, 30 * 60 * 1000); // 30 minutes
 
       return () => clearInterval(sessionCheckInterval);
     }

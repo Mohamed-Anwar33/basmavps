@@ -59,38 +59,30 @@ export default function AdminSidebar() {
       icon: <FileTextOutlined />,
       label: <Link href="/admin/blog">المدونة</Link>,
     },
-    // Content Management submenu
     {
-      key: 'content-management',
-      icon: <FileTextOutlined />,
-      label: 'إدارة المحتوى',
-      children: [
-        {
-          key: '/admin/content/homepage',
-          icon: <HomeOutlined />,
-          label: <Link href="/admin/content/homepage">الصفحة الرئيسية</Link>,
-        },
-        {
-          key: '/admin/content/about',
-          icon: <InfoCircleOutlined />,
-          label: <Link href="/admin/content/about">من نحن</Link>,
-        },
-        {
-          key: '/admin/content/how-to-order',
-          icon: <QuestionCircleOutlined />,
-          label: <Link href="/admin/content/how-to-order">كيف تطلب خدمتك</Link>,
-        },
-        {
-          key: '/admin/content/faq',
-          icon: <QuestionCircleOutlined />,
-          label: <Link href="/admin/content/faq">الأسئلة الشائعة</Link>,
-        },
-        {
-          key: '/admin/content/contact',
-          icon: <MessageOutlined />,
-          label: <Link href="/admin/content/contact">صفحة التواصل</Link>,
-        },
-      ],
+      key: '/admin/content/homepage',
+      icon: <HomeOutlined />,
+      label: <Link href="/admin/content/homepage">الصفحة الرئيسية</Link>,
+    },
+    {
+      key: '/admin/content/about',
+      icon: <InfoCircleOutlined />,
+      label: <Link href="/admin/content/about">من نحن</Link>,
+    },
+    {
+      key: '/admin/content/how-to-order',
+      icon: <QuestionCircleOutlined />,
+      label: <Link href="/admin/content/how-to-order">كيف تطلب خدمتك</Link>,
+    },
+    {
+      key: '/admin/content/faq',
+      icon: <QuestionCircleOutlined />,
+      label: <Link href="/admin/content/faq">الأسئلة الشائعة</Link>,
+    },
+    {
+      key: '/admin/content/contact',
+      icon: <MessageOutlined />,
+      label: <Link href="/admin/content/contact">صفحة التواصل</Link>,
     },
     {
       key: '/admin/settings',

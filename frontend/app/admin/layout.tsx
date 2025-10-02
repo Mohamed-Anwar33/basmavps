@@ -141,51 +141,44 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
       label: <Link href="/admin/orders" className="font-medium">إدارة الطلبات</Link>,
     },
     {
-      key: 'content',
-      icon: <FileTextOutlined className="text-lg" />,
-      label: <span className="font-medium">إدارة المحتوى</span>,
-      children: [
-        {
-          key: '/admin/content/homepage',
-          icon: <HomeOutlined />,
-          label: <Link href="/admin/content/homepage">الصفحة الرئيسية</Link>,
-        },
-        {
-          key: '/admin/content/about',
-          icon: <InfoCircleOutlined />,
-          label: <Link href="/admin/content/about">من نحن</Link>,
-        },
-        {
-          key: '/admin/content/faq',
-          icon: <QuestionCircleOutlined />,
-          label: <Link href="/admin/content/faq">الأسئلة الشائعة</Link>,
-        },
-        {
-          key: '/admin/content/how-to-order',
-          icon: <QuestionCircleOutlined />,
-          label: <Link href="/admin/content/how-to-order">كيف تطلب خدمتك</Link>,
-        },
-        {
-          key: '/admin/content/contact',
-          icon: <MessageOutlined />,
-          label: <Link href="/admin/content/contact">صفحة التواصل</Link>,
-        },
-        {
-          key: '/admin/services',
-          icon: <CustomerServiceOutlined />,
-          label: <Link href="/admin/services">إدارة الخدمات</Link>,
-        },
-        {
-          key: '/admin/blog',
-          icon: <EditOutlined />,
-          label: <Link href="/admin/blog">إدارة المدونة</Link>,
-        },
-        {
-          key: '/admin/banners',
-          icon: <CrownOutlined />,
-          label: <Link href="/admin/banners">إدارة البنرات</Link>,
-        },
-      ],
+      key: '/admin/content/homepage',
+      icon: <HomeOutlined className="text-lg" />,
+      label: <Link href="/admin/content/homepage" className="font-medium">الصفحة الرئيسية</Link>,
+    },
+    {
+      key: '/admin/content/about',
+      icon: <InfoCircleOutlined className="text-lg" />,
+      label: <Link href="/admin/content/about" className="font-medium">من نحن</Link>,
+    },
+    {
+      key: '/admin/content/faq',
+      icon: <QuestionCircleOutlined className="text-lg" />,
+      label: <Link href="/admin/content/faq" className="font-medium">الأسئلة الشائعة</Link>,
+    },
+    {
+      key: '/admin/content/how-to-order',
+      icon: <QuestionCircleOutlined className="text-lg" />,
+      label: <Link href="/admin/content/how-to-order" className="font-medium">كيف تطلب خدمتك</Link>,
+    },
+    {
+      key: '/admin/content/contact',
+      icon: <MessageOutlined className="text-lg" />,
+      label: <Link href="/admin/content/contact" className="font-medium">صفحة التواصل</Link>,
+    },
+    {
+      key: '/admin/services',
+      icon: <CustomerServiceOutlined className="text-lg" />,
+      label: <Link href="/admin/services" className="font-medium">إدارة الخدمات</Link>,
+    },
+    {
+      key: '/admin/blog',
+      icon: <EditOutlined className="text-lg" />,
+      label: <Link href="/admin/blog" className="font-medium">إدارة المدونة</Link>,
+    },
+    {
+      key: '/admin/banners',
+      icon: <CrownOutlined className="text-lg" />,
+      label: <Link href="/admin/banners" className="font-medium">إدارة البنرات</Link>,
     },
   ];
 

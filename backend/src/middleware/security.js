@@ -46,11 +46,11 @@ export const passwordResetLimiter = rateLimit({
 });
 
 /**
- * Upload rate limiting
+ * Upload rate limiting - زودت حد الرفع للصور
  */
 export const uploadLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 20, // limit each IP to 20 uploads per windowMs
+  max: 100, // زودت من 20 إلى 100 رفعة كل 15 دقيقة
   message: {
     success: false,
     error: 'Too many upload attempts, please try again later.'
@@ -60,13 +60,13 @@ export const uploadLimiter = rateLimit({
 });
 
 /**
- * Speed limiter for repeated requests
+ * Speed limiter for repeated requests - خففت القيود
  */
 export const speedLimiter = slowDown({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  delayAfter: 50, // allow 50 requests per windowMs without delay
-  delayMs: () => 500, // add 500ms delay per request after delayAfter
-  maxDelayMs: 20000, // maximum delay of 20 seconds
+  delayAfter: 200, // زودت من 50 إلى 200 طلب بدون تأخير
+  delayMs: () => 200, // قللت التأخير من 500ms إلى 200ms
+  maxDelayMs: 5000, // قللت أقصى تأخير من 20 ثانية إلى 5 ثواني
 });
 
 /**

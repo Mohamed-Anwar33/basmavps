@@ -9,10 +9,10 @@ import helmet from 'helmet';
 
 // Rate limiting configurations
 export const rateLimitConfig = {
-  // General API rate limiting
+  // General API rate limiting - زودت الحد للخدمات والصفحات
   general: rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
+    max: 500, // زودت من 100 إلى 500 طلب كل 15 دقيقة
     message: {
       success: false,
       error: 'Too many requests from this IP, please try again later.'
@@ -57,10 +57,10 @@ export const rateLimitConfig = {
     legacyHeaders: false,
   }),
 
-  // Admin endpoints rate limiting
+  // Admin endpoints rate limiting - زودت الحد للأدمن
   admin: rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 200, // higher limit for admin operations
+    max: 1000, // زودت من 200 إلى 1000 للعمليات الإدارية
     message: {
       success: false,
       error: 'Too many admin requests, please try again later.'
@@ -82,12 +82,12 @@ export const rateLimitConfig = {
   })
 };
 
-// Speed limiting (slow down responses)
+// Speed limiting (slow down responses) - خففت القيود
 export const speedLimitConfig = {
   general: slowDown({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    delayAfter: 50, // allow 50 requests per windowMs without delay
-    delayMs: () => 500, // Fixed: new express-slow-down v2 format
+    delayAfter: 200, // زودت من 50 إلى 200 طلب بدون تأخير
+    delayMs: () => 200, // قللت التأخير من 500ms إلى 200ms
     validate: { delayMs: false } // Disable warning
   }),
 
