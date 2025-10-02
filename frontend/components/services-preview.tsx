@@ -207,7 +207,7 @@ export function ServicesPreview() {
           </div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10">
             {services.map((service) => {
               const IconComponent = getCategoryIcon(service.category)
               const categoryStyle = getCategoryStyle(service.category)
@@ -219,31 +219,50 @@ export function ServicesPreview() {
                 >
                   {/* Service Image - Prioritize mainImages over regular images */}
                   {(() => {
-                    // Get the primary cover image - first mainImage or first regular image
-                    const coverImage = service.mainImages && service.mainImages.length > 0 
+                    // إعطاء أولوية للصور على Cloudinary أولاً
+                    const cloudinaryImage = service.images && service.images.length > 0 
+                      ? service.images.find(img => img.includes('cloudinary')) || service.images[0]
+                      : null;
+                    const mainImage = service.mainImages && service.mainImages.length > 0 
                       ? service.mainImages.sort((a, b) => a.order - b.order)[0]
                       : null;
-                    const fallbackImage = service.images && service.images.length > 0 ? service.images[0] : null;
-                    const imageUrl = coverImage?.url || fallbackImage;
-                    const imageAlt = coverImage?.alt || getArabicText(service.title) || 'صورة الخدمة';
+                    const mainImageUrl = mainImage?.url || null;
+                    
+                    // أولوية للصور على Cloudinary
+                    const imageUrl = cloudinaryImage || mainImageUrl;
+                    const imageAlt = mainImage?.alt || getArabicText(service.title) || 'صورة الخدمة';
                     
                     return imageUrl ? (
-                      <div className="relative w-full h-48 overflow-hidden bg-gray-50">
+                      <div className="relative w-full h-40 sm:h-48 overflow-hidden bg-white border-b border-gray-100 rounded-t-lg flex items-center justify-center">
                         <img
                           src={imageUrl}
                           alt={imageAlt}
-                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 p-2"
+                          loading="lazy"
                           onError={(e) => {
-                            e.currentTarget.style.display = 'none'
+                            // عرض placeholder بدلاً من إخفاء الصورة
+                            const target = e.currentTarget;
+                            target.style.display = 'none';
+                            const placeholder = target.parentElement?.querySelector('.image-placeholder');
+                            if (placeholder) {
+                              (placeholder as HTMLElement).style.display = 'flex';
+                            }
                           }}
                         />
+                        {/* Placeholder للصور المكسورة */}
+                        <div className="image-placeholder absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center hidden">
+                          <div className="text-center">
+                            <ImageIcon className="w-12 h-12 text-gray-400 mx-auto mb-2" />
+                            <p className="text-sm text-gray-500 arabic-text">صورة الخدمة</p>
+                          </div>
+                        </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
                         
                         {/* Cover Image Badge */}
-                        {coverImage && (
-                          <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg">
+                        {cloudinaryImage && (
+                          <div className="absolute top-3 left-3 bg-gradient-to-r from-green-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg">
                             <ImageIcon className="w-3 h-3 inline mr-1" />
-                            غلاف
+                            محسنة
                           </div>
                         )}
                         
@@ -256,19 +275,15 @@ export function ServicesPreview() {
                         )}
                       </div>
                     ) : (
-                      <div className="relative w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                      <div className="relative w-full h-40 sm:h-48 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 flex items-center justify-center rounded-t-lg">
                         <div className="text-center">
-                          <IconComponent className={`w-16 h-16 ${categoryStyle.iconColor} mx-auto mb-2 opacity-60`} />
-                          <p className="text-sm text-gray-500 arabic-text">
-                            {service.category === 'social-media' && 'السوشيال ميديا'}
-                            {service.category === 'banners' && 'البنرات'}
-                            {service.category === 'content' && 'المحتوى'}
-                            {service.category === 'resumes' && 'السير الذاتية'}
-                            {service.category === 'logos' && 'الشعارات'}
-                            {service.category === 'linkedin' && 'لينكد إن'}
-                            {service.category === 'consultation' && 'الاستشارات'}
-                            {service.category === 'management' && 'الإدارة'}
+                          <div className={`w-16 h-16 bg-gradient-to-br ${categoryStyle.bgGradient} rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-sm`}>
+                            <IconComponent className={`h-8 w-8 ${categoryStyle.iconColor}`} />
+                          </div>
+                          <p className="text-sm text-gray-600 arabic-text font-medium">
+                            {getArabicText(service.title)}
                           </p>
+                          <p className="text-xs text-gray-400 arabic-text mt-1">صورة قريباً</p>
                         </div>
                         
                         {service.isFeatured && (
@@ -281,18 +296,18 @@ export function ServicesPreview() {
                     );
                   })()}
                   
-                  <CardContent className="p-4">
+                  <CardContent className="p-3 sm:p-4">
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex-1">
-                        <div className="text-lg font-bold arabic-text text-gray-900 mb-1 text-right line-clamp-1">
+                        <div className="text-base sm:text-lg font-bold arabic-text text-gray-900 mb-1 text-right line-clamp-1">
                           {getArabicText(service.title)}
                         </div>
                         <p className="text-sm text-gray-600 arabic-text leading-relaxed text-right line-clamp-2">
                           {getArabicText(service.description)}
                         </p>
                       </div>
-                      <div className={`w-10 h-10 bg-gradient-to-br ${categoryStyle.bgGradient} rounded-xl flex items-center justify-center ml-4 transition-colors`}>
-                        <IconComponent className={`h-5 w-5 ${categoryStyle.iconColor}`} />
+                      <div className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br ${categoryStyle.bgGradient} rounded-xl flex items-center justify-center ml-3 sm:ml-4 transition-colors`}>
+                        <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 ${categoryStyle.iconColor}`} />
                       </div>
                     </div>
                     

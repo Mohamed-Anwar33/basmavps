@@ -7,6 +7,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { apiFetch } from "@/lib/api"
 import { ServiceFeaturesTimeline } from "@/components/service-details"
+import { ServiceSidebar } from "@/components/service-details/service-sidebar"
 import { useEffect, useState } from 'react'
 import { ServiceType } from "@/types/service"
 import { useCurrency } from "@/contexts/currency-context"
@@ -302,281 +303,61 @@ export default function ServiceDetailPage({
             </div>
           </nav>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-2">
-              {/* Header */}
-              <div className="mb-8">
-                <div className="flex items-start gap-6 mb-4">
-                  {(() => {
-                    // استخدام الصور من الداتابيس
-                    const serviceImages = sAny?.images || []
-                    
-                    // إذا لم توجد صور في الداتابيس، استخدم صورة افتراضية
-                    const fallbackImage = (() => {
-                      const imageMap: Record<string, string> = {
-                        'social-media': '/تفاصي الخدمات/سوشيال ميديا.png',
-                        'logos': '/تفاصي الخدمات/الشعارات.png',
-                        'banners': '/تفاصي الخدمات/تصميم البنرات.png',
-                        'resumes': '/تفاصي الخدمات/السير الذاتية.png',
-                        'linkedin': '/تفاصي الخدمات/حسابات لينكد ان.png',
-                        'content': '/تفاصي الخدمات/كتابة المحتوي التسويقي.png'
-                      }
-                      return imageMap[service.category] || '/تفاصي الخدمات/سوشيال ميديا.png'
-                    })()
-                    
-                    const displayImages = serviceImages.length > 0 ? serviceImages : [fallbackImage]
-                    const currentImage = displayImages[currentImageIndex] || fallbackImage
-                    
-                    return (
-                      <div className="flex-shrink-0 relative">
-                        <div className="relative">
-                          <img 
-                            src={currentImage}
-                            alt={titleAr}
-                            className="w-32 h-32 md:w-40 md:h-40 object-contain transition-all duration-300"
-                            onError={(e) => {
-                              // في حالة عدم وجود الصورة، استخدم أيقونة بديلة
-                              const target = e.target as HTMLImageElement
-                              target.style.display = 'none'
-                              target.nextElementSibling?.classList.remove('hidden')
-                            }}
-                          />
-                          <div className="hidden w-32 h-32 md:w-40 md:h-40 p-6 bg-[#4b2e83]/10 rounded-xl flex items-center justify-center shadow-lg">
-                            <IconComponent className="w-16 h-16 md:w-20 md:h-20 text-[#4b2e83]" />
-                          </div>
-                          
-                          {/* أسهم التنقل - تظهر فقط إذا كان هناك أكثر من صورة */}
-                          {displayImages.length > 1 && (
-                            <>
-                              <button
-                                onClick={() => setCurrentImageIndex(prev => 
-                                  prev === 0 ? displayImages.length - 1 : prev - 1
-                                )}
-                                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#4b2e83] rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110"
-                                aria-label="الصورة السابقة"
-                              >
-                                <ChevronLeft className="w-4 h-4" />
-                              </button>
-                              <button
-                                onClick={() => setCurrentImageIndex(prev => 
-                                  prev === displayImages.length - 1 ? 0 : prev + 1
-                                )}
-                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#4b2e83] rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110"
-                                aria-label="الصورة التالية"
-                              >
-                                <ChevronRight className="w-4 h-4" />
-                              </button>
-                            </>
-                          )}
-                        </div>
-                        
-                        {/* مؤشرات الصور - تظهر فقط إذا كان هناك أكثر من صورة */}
-                        {displayImages.length > 1 && (
-                          <div className="flex justify-center mt-2 gap-1">
-                            {displayImages.map((_: string, index: number) => (
-                              <button
-                                key={index}
-                                onClick={() => setCurrentImageIndex(index)}
-                                className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                                  index === currentImageIndex 
-                                    ? 'bg-[#4b2e83] scale-125' 
-                                    : 'bg-gray-300 hover:bg-gray-400'
-                                }`}
-                                aria-label={`الصورة ${index + 1}`}
-                              />
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    )
-                  })()}
-                  <div className="flex-1">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 arabic-text mb-2">
-                      {titleAr}
-                    </h1>
-                  </div>
-                </div>
-              </div>
-
-              {/* تفاصيل الخدمة */}
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-white arabic-text mb-4 bg-[#4B2E83] px-6 py-3 rounded-lg inline-block">
-                  تفاصيل الخدمة
-                </h2>
-                <p className="text-gray-700 arabic-text leading-relaxed">
-                  {descriptionAr}
-                </p>
-              </div>
-
-              {/* نبذة عن الخدمة */}
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-white arabic-text mb-4 bg-[#4B2E83] px-6 py-3 rounded-lg inline-block">
-                  نبذة عن الخدمة
-                </h2>
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <div className="text-gray-700 arabic-text leading-relaxed">
-                    {/* استخدام النبذة المختصرة من لوحة التحكم إذا كانت متوفرة */}
-                    {shortDescriptionFromAdmin ? (
-                      <p className="mb-3 text-right text-lg">
-                        {shortDescriptionFromAdmin}
-                      </p>
-                    ) : (
-                      // استخدام الوصف العادي كبديل
-                      descriptionAr.split('\n').map((paragraph, index) => (
-                        paragraph.trim() && (
-                          <p key={index} className="mb-3 text-right">
-                            {paragraph.trim()}
-                          </p>
-                        )
-                      ))
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* الخطوات */}
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-white arabic-text mb-6 bg-[#4B2E83] px-6 py-3 rounded-lg inline-block">
-                  الخطوات التي نتبعها في الخدمة
-                </h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  {/* الخطوات */}
-                  <div className="relative">
-                    {/* استخدام خطوات العمل من لوحة التحكم إذا كانت متوفرة */}
-                    {(workStepsFromAdmin.length > 0 ? workStepsFromAdmin : [
-                      { title: "التخطيط", desc: "نقوم بدراسة متطلباتك وتحديد الأهداف المطلوبة للمشروع" },
-                      { title: "التنفيذ", desc: "نبدأ في تنفيذ العمل وفقاً للمعايير المحددة والجودة العالية" },
-                      { title: "التقييم", desc: "نراجع العمل ونتأكد من مطابقته للمواصفات المطلوبة" }
-                    ]).map((item: any, index: number) => {
-                      const stepNumber = index + 1;
-                      return (
-                      <div key={stepNumber} className="relative">
-                        {/* سهم الربط بين الخطوات */}
-                        {index < (workStepsFromAdmin.length > 0 ? workStepsFromAdmin.length - 1 : 2) && (
-                          <div className="absolute right-5 top-20 flex flex-col items-center h-16">
-                            {/* جسم السهم */}
-                            <div className="w-0.5 h-12 bg-gradient-to-b from-[#4b2e83] to-[#7a4db3] relative">
-                              {/* تأثير التوهج */}
-                              <div className="absolute inset-0 w-0.5 bg-gradient-to-b from-[#4b2e83] to-[#7a4db3] blur-sm opacity-60"></div>
-                              {/* نقطة متحركة على السهم */}
-                              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[#7a4db3] rounded-full animate-bounce opacity-80"></div>
-                            </div>
-                            
-                            {/* رأس السهم */}
-                            <div className="relative">
-                              <svg 
-                                className="w-4 h-4 text-[#7a4db3] drop-shadow-lg animate-pulse" 
-                                fill="currentColor" 
-                                viewBox="0 0 24 24"
-                              >
-                                <path d="M12 16l-6-6h12l-6 6z"/>
-                              </svg>
-                              {/* تأثير التوهج حول رأس السهم */}
-                              <div className="absolute inset-0 w-4 h-4 bg-[#7a4db3] rounded-full blur-md opacity-30 animate-ping"></div>
-                            </div>
-                          </div>
-                        )}
-                        
-                        <div className="flex items-start gap-4 p-4 bg-white border border-gray-200 rounded-xl mb-4 relative z-10 hover:shadow-lg transition-all duration-300 hover:border-[#4b2e83]/30">
-                          <div className="flex-shrink-0">
-                            <div className="w-10 h-10 bg-gradient-to-br from-[#4b2e83] to-[#7a4db3] text-white rounded-full flex items-center justify-center font-bold shadow-lg relative">
-                              {stepNumber}
-                              {/* حلقة توهج حول الرقم */}
-                              <div className="absolute inset-0 w-10 h-10 bg-gradient-to-br from-[#4b2e83] to-[#7a4db3] rounded-full opacity-30 animate-ping"></div>
-                            </div>
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="font-bold text-gray-900 arabic-text text-lg mb-2">
-                              {item.title}
-                            </h3>
-                            <p className="text-gray-600 arabic-text leading-relaxed">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      );
-                    })}
-                  </div>
-                  
-                  {/* صورة الخطوات */}
-                  <div className="flex justify-center">
-                    <img 
-                      src="/صورة الخطوات.png"
-                      alt="خطوات العمل"
-                      className="w-full max-w-md h-auto object-contain"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* معرض صور Portfolio - نماذج من أعمالنا */}
+          {/* Header - يظهر أولاً على الموبايل */}
+          <div className="mb-8 order-1 lg:hidden">
+            <div className="flex items-start gap-6 mb-4">
               {(() => {
-                // استخدام portfolioImages من قاعدة البيانات
-                const portfolioImages = (sAny?.portfolioImages || [])
-                  .sort((a: any, b: any) => (a.order || 0) - (b.order || 0)) // ترتيب الصور حسب order
+                // استخدام الصور من الداتابيس
+                const serviceImages = sAny?.images || []
                 
-                // إخفاء القسم إذا لم توجد صور portfolio
-                if (portfolioImages.length === 0) {
-                  return null
-                }
+                // إذا لم توجد صور في الداتابيس، استخدم صورة افتراضية
+                const fallbackImage = (() => {
+                  const imageMap: Record<string, string> = {
+                    'social-media': '/تفاصي الخدمات/سوشيال ميديا.png',
+                    'logos': '/تفاصي الخدمات/الشعارات.png',
+                    'banners': '/تفاصي الخدمات/تصميم البنرات.png',
+                    'resumes': '/تفاصي الخدمات/السير الذاتية.png',
+                    'linkedin': '/تفاصي الخدمات/حسابات لينكد ان.png',
+                    'content': '/تفاصي الخدمات/كتابة المحتوي التسويقي.png'
+                  }
+                  return imageMap[service.category] || '/تفاصي الخدمات/سوشيال ميديا.png'
+                })()
+                
+                const displayImages = serviceImages.length > 0 ? serviceImages : [fallbackImage]
+                const currentImage = displayImages[currentImageIndex] || fallbackImage
                 
                 return (
-                  <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-white arabic-text mb-6 bg-[#4B2E83] px-6 py-3 rounded-lg inline-block">
-                      نماذج من أعمالنا
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {portfolioImages.map((imageObj: any, index: number) => {
-                        const imageSrc = imageObj.url || imageObj
-                        const imageAlt = imageObj.alt || `نموذج ${index + 1} من ${titleAr}`
-                        
-                        return (
-                          <div 
-                            key={imageObj._id || index} 
-                            className="group relative overflow-hidden rounded-xl bg-white border border-gray-200 hover:border-[#4b2e83]/30 transition-all duration-300 hover:shadow-lg cursor-pointer"
-                            onClick={() => setSelectedGalleryImage(imageSrc)}
-                          >
-                            <div className="aspect-square p-4">
-                              <img 
-                                src={imageSrc}
-                                alt={imageAlt}
-                                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                                onError={(e) => {
-                                  // في حالة عدم وجود الصورة، استخدم أيقونة بديلة
-                                  const target = e.target as HTMLImageElement
-                                  target.src = '/placeholder.svg'
-                                }}
-                              />
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                              <div className="absolute bottom-4 left-4 right-4">
-                                <p className="text-white text-sm font-medium arabic-text text-center">
-                                  {imageAlt} - اضغط للتكبير
-                                </p>
-                              </div>
-                            </div>
-                            {/* مؤشر الترتيب للصور */}
-                            <div className="absolute top-2 right-2 bg-[#4b2e83]/80 text-white text-xs px-2 py-1 rounded-full">
-                              {index + 1}
-                            </div>
-                          </div>
-                        )
-                      })}
+                  <div className="flex-shrink-0 relative">
+                    <div className="relative">
+                      <img 
+                        src={currentImage}
+                        alt={titleAr}
+                        className="w-32 h-32 md:w-40 md:h-40 object-contain transition-all duration-300"
+                        onError={(e) => {
+                          // في حالة عدم وجود الصورة، استخدم أيقونة بديلة
+                          const target = e.target as HTMLImageElement
+                          target.style.display = 'none'
+                          target.nextElementSibling?.classList.remove('hidden')
+                        }}
+                      />
+                      <div className="hidden w-32 h-32 md:w-40 md:h-40 p-6 bg-[#4b2e83]/10 rounded-xl flex items-center justify-center shadow-lg">
+                        <IconComponent className="w-16 h-16 md:w-20 md:h-20 text-[#4b2e83]" />
+                      </div>
                     </div>
                   </div>
                 )
               })()}
-
-              {/* المميزات - Timeline */}
-              <div className="mb-16">
-                <ServiceFeaturesTimeline features={service.features?.ar || ['خدمة عالية الجودة', 'دعم فني مميز', 'تسليم في المواعيد المحددة', 'ضمان الرضا التام']} />
+              <div className="flex-1">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 arabic-text mb-2">
+                  {titleAr}
+                </h1>
               </div>
             </div>
+          </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
+          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">
+            {/* Sidebar - في الناحية التانية على اللاب */}
+            <div className="lg:col-start-3 lg:row-start-1 order-2 lg:order-2">
               <div className="sticky top-24">
                 <div className="bg-white border border-gray-200 rounded-xl p-6">
                   {/* السعر */}
@@ -711,6 +492,281 @@ export default function ServiceDetailPage({
                 </div>
               </div>
             </div>
+
+            {/* Main Content */}
+            <div className="lg:col-span-2 order-3 lg:order-1">
+              {/* Header - يظهر على اللاب فقط */}
+              <div className="mb-8 hidden lg:block">
+                <div className="flex items-start gap-6 mb-4">
+                  {(() => {
+                    // استخدام الصور من الداتابيس
+                    const serviceImages = sAny?.images || []
+                    
+                    // إذا لم توجد صور في الداتابيس، استخدم صورة افتراضية
+                    const fallbackImage = (() => {
+                      const imageMap: Record<string, string> = {
+                        'social-media': '/تفاصي الخدمات/سوشيال ميديا.png',
+                        'logos': '/تفاصي الخدمات/الشعارات.png',
+                        'banners': '/تفاصي الخدمات/تصميم البنرات.png',
+                        'resumes': '/تفاصي الخدمات/السير الذاتية.png',
+                        'linkedin': '/تفاصي الخدمات/حسابات لينكد ان.png',
+                        'content': '/تفاصي الخدمات/كتابة المحتوي التسويقي.png'
+                      }
+                      return imageMap[service.category] || '/تفاصي الخدمات/سوشيال ميديا.png'
+                    })()
+                    
+                    const displayImages = serviceImages.length > 0 ? serviceImages : [fallbackImage]
+                    const currentImage = displayImages[currentImageIndex] || fallbackImage
+                    
+                    return (
+                      <div className="flex-shrink-0 relative">
+                        <div className="relative">
+                          <img 
+                            src={currentImage}
+                            alt={titleAr}
+                            className="w-32 h-32 md:w-40 md:h-40 object-contain transition-all duration-300"
+                            onError={(e) => {
+                              // في حالة عدم وجود الصورة، استخدم أيقونة بديلة
+                              const target = e.target as HTMLImageElement
+                              target.style.display = 'none'
+                              target.nextElementSibling?.classList.remove('hidden')
+                            }}
+                          />
+                          <div className="hidden w-32 h-32 md:w-40 md:h-40 p-6 bg-[#4b2e83]/10 rounded-xl flex items-center justify-center shadow-lg">
+                            <IconComponent className="w-16 h-16 md:w-20 md:h-20 text-[#4b2e83]" />
+                          </div>
+                          
+                          {/* أسهم التنقل - تظهر فقط إذا كان هناك أكثر من صورة */}
+                          {displayImages.length > 1 && (
+                            <>
+                              <button
+                                onClick={() => setCurrentImageIndex(prev => 
+                                  prev === 0 ? displayImages.length - 1 : prev - 1
+                                )}
+                                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#4b2e83] rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110"
+                                aria-label="الصورة السابقة"
+                              >
+                                <ChevronLeft className="w-4 h-4" />
+                              </button>
+                              <button
+                                onClick={() => setCurrentImageIndex(prev => 
+                                  prev === displayImages.length - 1 ? 0 : prev + 1
+                                )}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#4b2e83] rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110"
+                                aria-label="الصورة التالية"
+                              >
+                                <ChevronRight className="w-4 h-4" />
+                              </button>
+                            </>
+                          )}
+                        </div>
+                        
+                        {/* مؤشرات الصور - تظهر فقط إذا كان هناك أكثر من صورة */}
+                        {displayImages.length > 1 && (
+                          <div className="flex justify-center mt-2 gap-1">
+                            {displayImages.map((_: string, index: number) => (
+                              <button
+                                key={index}
+                                onClick={() => setCurrentImageIndex(index)}
+                                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                                  index === currentImageIndex 
+                                    ? 'bg-[#4b2e83] scale-125' 
+                                    : 'bg-gray-300 hover:bg-gray-400'
+                                }`}
+                                aria-label={`الصورة ${index + 1}`}
+                              />
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })()}
+                  <div className="flex-1">
+                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 arabic-text mb-2">
+                      {titleAr}
+                    </h1>
+                  </div>
+                </div>
+              </div>
+
+              {/* تفاصيل الخدمة */}
+              <div className="mb-8 order-3">
+                <h2 className="text-2xl font-bold text-white arabic-text mb-4 bg-[#4B2E83] px-6 py-3 rounded-lg inline-block">
+                  تفاصيل الخدمة
+                </h2>
+                <p className="text-gray-700 arabic-text leading-relaxed">
+                  {descriptionAr}
+                </p>
+              </div>
+
+              {/* نبذة عن الخدمة */}
+              <div className="mb-8 order-3">
+                <h2 className="text-2xl font-bold text-white arabic-text mb-4 bg-[#4B2E83] px-6 py-3 rounded-lg inline-block">
+                  نبذة عن الخدمة
+                </h2>
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="text-gray-700 arabic-text leading-relaxed">
+                    {/* استخدام النبذة المختصرة من لوحة التحكم إذا كانت متوفرة */}
+                    {shortDescriptionFromAdmin ? (
+                      <p className="mb-3 text-right text-lg">
+                        {shortDescriptionFromAdmin}
+                      </p>
+                    ) : (
+                      // استخدام الوصف العادي كبديل
+                      descriptionAr.split('\n').map((paragraph, index) => (
+                        paragraph.trim() && (
+                          <p key={index} className="mb-3 text-right">
+                            {paragraph.trim()}
+                          </p>
+                        )
+                      ))
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* الخطوات */}
+              <div className="mb-8 order-4">
+                <h2 className="text-2xl font-bold text-white arabic-text mb-6 bg-[#4B2E83] px-6 py-3 rounded-lg inline-block">
+                  الخطوات التي نتبعها في الخدمة
+                </h2>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  {/* الخطوات */}
+                  <div className="relative">
+                    {/* استخدام خطوات العمل من لوحة التحكم إذا كانت متوفرة */}
+                    {(workStepsFromAdmin.length > 0 ? workStepsFromAdmin : [
+                      { title: "التخطيط", desc: "نقوم بدراسة متطلباتك وتحديد الأهداف المطلوبة للمشروع" },
+                      { title: "التنفيذ", desc: "نبدأ في تنفيذ العمل وفقاً للمعايير المحددة والجودة العالية" },
+                      { title: "التقييم", desc: "نراجع العمل ونتأكد من مطابقته للمواصفات المطلوبة" }
+                    ]).map((item: any, index: number) => {
+                      const stepNumber = index + 1;
+                      return (
+                      <div key={stepNumber} className="relative">
+                        {/* سهم الربط بين الخطوات */}
+                        {index < (workStepsFromAdmin.length > 0 ? workStepsFromAdmin.length - 1 : 2) && (
+                          <div className="absolute right-5 top-20 flex flex-col items-center h-16">
+                            {/* جسم السهم */}
+                            <div className="w-0.5 h-12 bg-gradient-to-b from-[#4b2e83] to-[#7a4db3] relative">
+                              {/* تأثير التوهج */}
+                              <div className="absolute inset-0 w-0.5 bg-gradient-to-b from-[#4b2e83] to-[#7a4db3] blur-sm opacity-60"></div>
+                              {/* نقطة متحركة على السهم */}
+                              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[#7a4db3] rounded-full animate-bounce opacity-80"></div>
+                            </div>
+                            
+                            {/* رأس السهم */}
+                            <div className="relative">
+                              <svg 
+                                className="w-4 h-4 text-[#7a4db3] drop-shadow-lg animate-pulse" 
+                                fill="currentColor" 
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 16l-6-6h12l-6 6z"/>
+                              </svg>
+                              {/* تأثير التوهج حول رأس السهم */}
+                              <div className="absolute inset-0 w-4 h-4 bg-[#7a4db3] rounded-full blur-md opacity-30 animate-ping"></div>
+                            </div>
+                          </div>
+                        )}
+                        
+                        <div className="flex items-start gap-4 p-4 bg-white border border-gray-200 rounded-xl mb-4 relative z-10 hover:shadow-lg transition-all duration-300 hover:border-[#4b2e83]/30">
+                          <div className="flex-shrink-0">
+                            <div className="w-10 h-10 bg-gradient-to-br from-[#4b2e83] to-[#7a4db3] text-white rounded-full flex items-center justify-center font-bold shadow-lg relative">
+                              {stepNumber}
+                              {/* حلقة توهج حول الرقم */}
+                              <div className="absolute inset-0 w-10 h-10 bg-gradient-to-br from-[#4b2e83] to-[#7a4db3] rounded-full opacity-30 animate-ping"></div>
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="font-bold text-gray-900 arabic-text text-lg mb-2">
+                              {item.title}
+                            </h3>
+                            <p className="text-gray-600 arabic-text leading-relaxed">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      );
+                    })}
+                  </div>
+                  
+                  {/* صورة الخطوات - مخفية على الموبايل */}
+                  <div className="hidden lg:flex justify-center">
+                    <img 
+                      src="/صورة الخطوات.png"
+                      alt="خطوات العمل"
+                      className="w-full max-w-xs h-auto object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* معرض صور Portfolio - نماذج من أعمالنا */}
+              <div className="order-5">
+              {(() => {
+                // استخدام portfolioImages من قاعدة البيانات
+                const portfolioImages = (sAny?.portfolioImages || [])
+                  .sort((a: any, b: any) => (a.order || 0) - (b.order || 0)) // ترتيب الصور حسب order
+                
+                // إخفاء القسم إذا لم توجد صور portfolio
+                if (portfolioImages.length === 0) {
+                  return null
+                }
+                
+                return (
+                  <div className="mb-8">
+                    <h2 className="text-2xl font-bold text-white arabic-text mb-6 bg-[#4B2E83] px-6 py-3 rounded-lg inline-block">
+                      نماذج من أعمالنا
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {portfolioImages.map((imageObj: any, index: number) => {
+                        const imageSrc = imageObj.url || imageObj
+                        const imageAlt = imageObj.alt || `نموذج ${index + 1} من ${titleAr}`
+                        
+                        return (
+                          <div 
+                            key={imageObj._id || index} 
+                            className="group relative overflow-hidden rounded-xl bg-white border border-gray-200 hover:border-[#4b2e83]/30 transition-all duration-300 hover:shadow-lg cursor-pointer"
+                            onClick={() => setSelectedGalleryImage(imageSrc)}
+                          >
+                            <div className="aspect-square p-4">
+                              <img 
+                                src={imageSrc}
+                                alt={imageAlt}
+                                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                                onError={(e) => {
+                                  // في حالة عدم وجود الصورة، استخدم أيقونة بديلة
+                                  const target = e.target as HTMLImageElement
+                                  target.src = '/placeholder.svg'
+                                }}
+                              />
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <p className="text-white text-sm font-medium arabic-text text-center">
+                                  {imageAlt} - اضغط للتكبير
+                                </p>
+                              </div>
+                            </div>
+                            {/* مؤشر الترتيب للصور */}
+                            <div className="absolute top-2 right-2 bg-[#4b2e83]/80 text-white text-xs px-2 py-1 rounded-full">
+                              {index + 1}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )
+              })()}
+              </div>
+
+              {/* المميزات - Timeline */}
+              <div className="mb-16 order-6">
+                <ServiceFeaturesTimeline features={service.features?.ar || ['خدمة عالية الجودة', 'دعم فني مميز', 'تسليم في المواعيد المحددة', 'ضمان الرضا التام']} />
+              </div>
+            </div>
+
           </div>
         </div>
       </main>

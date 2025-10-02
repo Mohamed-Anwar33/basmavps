@@ -1189,10 +1189,30 @@ function ServicesManagement() {
   }
 
   return (
-    <div className="space-y-6">
-      <Card>
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">إدارة الخدمات</h2>
+    <div className="p-6 bg-gray-50 min-h-screen">
+      <style jsx global>{`
+        .ant-input-affix-wrapper .ant-input {
+          color: #1f2937 !important;
+          font-size: 16px !important;
+          font-weight: 500 !important;
+          background-color: #ffffff !important;
+          border: 1px solid #d1d5db !important;
+          text-align: right !important;
+          direction: rtl !important;
+        }
+        .ant-input-affix-wrapper {
+          background-color: #ffffff !important;
+          border: 1px solid #d1d5db !important;
+          border-radius: 8px !important;
+        }
+        .ant-input::placeholder {
+          color: #9ca3af !important;
+          font-size: 14px !important;
+        }
+      `}</style>
+      <Card className="shadow-lg">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold text-gray-800">إدارة الخدمات</h1>
           <Button
             type="primary"
             icon={<PlusOutlined />}
@@ -1210,12 +1230,20 @@ function ServicesManagement() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-6">
-          <Search
-            placeholder="البحث في الخدمات..."
-            allowClear
-            onChange={(e) => setSearchText(e.target.value)}
-            className="flex-1"
-          />
+          <div className="flex-1">
+            <Search
+              placeholder="البحث في الخدمات..."
+              allowClear
+              onChange={(e) => setSearchText(e.target.value)}
+              size="large"
+              style={{
+                fontSize: '16px',
+                fontFamily: 'inherit',
+                direction: 'rtl'
+              }}
+              className="w-full [&_.ant-input]:text-right [&_.ant-input]:text-gray-900 [&_.ant-input]:text-base [&_.ant-input]:font-medium [&_.ant-input]:bg-white [&_.ant-input]:border-gray-300 [&_.ant-input]:rounded-lg [&_.ant-input]:px-4 [&_.ant-input]:py-2 [&_.ant-input-affix-wrapper]:border-gray-300 [&_.ant-input-affix-wrapper]:rounded-lg [&_.ant-input-affix-wrapper]:bg-white"
+            />
+          </div>
           <Select
             value={selectedCategory}
             onChange={(value) => {

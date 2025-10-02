@@ -30,9 +30,9 @@ export function ServiceSidebar({
   uiTexts
 }: ServiceSidebarProps) {
   return (
-    <div className="space-y-6">
-      <Card className="sticky top-24 border-[#bcbcbc]/20 shadow-lg">
-        <CardContent className="p-6">
+    <div className="space-y-4 sm:space-y-6">
+      <Card className="lg:sticky lg:top-24 border-[#bcbcbc]/20 shadow-lg bg-gradient-to-br from-white to-[#f8f9fa]">
+        <CardContent className="p-4 sm:p-6">
           <div className="text-center mb-6">
             {/* عرض نسبة الخصم إذا كان هناك سعر أصلي */}
             {price.originalAmount && price.originalAmount > price.amount && (
@@ -47,14 +47,14 @@ export function ServiceSidebar({
               </div>
             )}
             
-            <div className="text-3xl font-bold text-[#4b2e83] mb-2 arabic-text">
+            <div className="text-2xl sm:text-3xl font-bold text-[#4b2e83] mb-2 arabic-text">
               <PriceDisplay 
                 price={price}
                 currentClassName="text-[#4b2e83] font-bold"
-                originalClassName="text-gray-400 text-lg line-through mr-2"
+                originalClassName="text-gray-400 text-base sm:text-lg line-through mr-2"
               />
             </div>
-            <p className="text-[#bcbcbc] arabic-text">السعر يبدأ من</p>
+            <p className="text-[#bcbcbc] arabic-text text-sm sm:text-base">السعر يبدأ من</p>
           </div>
           <div className="space-y-4 mb-6">
             <div className="flex items-center justify-between text-sm">
@@ -62,13 +62,13 @@ export function ServiceSidebar({
               <span className="font-medium arabic-text text-[#4b2e83]">{nonRefundable ? 'غير قابلة للاسترجاع' : 'قابلة للاسترجاع'}</span>
             </div>
           </div>
-          <Button asChild size="lg" className="w-full bg-gradient-to-r from-[#4b2e83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4b2e83] text-white font-semibold mb-4 arabic-text shadow-lg hover:shadow-xl transition-all">
+          <Button asChild size="lg" className="w-full bg-gradient-to-r from-[#4b2e83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4b2e83] text-white font-semibold mb-3 sm:mb-4 arabic-text shadow-lg hover:shadow-xl transition-all text-sm sm:text-base py-3 sm:py-4">
             <Link href={`/order/payment?service=${serviceId}`} className="flex items-center justify-center gap-2">
               <span>اطلب الخدمة الآن</span>
-              <ArrowLeft className="h-5 w-5 rtl-flip" />
+              <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5 rtl-flip" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="sm" className="w-full arabic-text border-[#4b2e83] text-[#4b2e83] hover:bg-[#4b2e83] hover:text-white transition-colors">
+          <Button asChild variant="outline" size="sm" className="w-full arabic-text border-[#4b2e83] text-[#4b2e83] hover:bg-[#4b2e83] hover:text-white transition-colors text-xs sm:text-sm py-2 sm:py-3">
             <Link href="/services">تصفح خدمات أخرى</Link>
           </Button>
           

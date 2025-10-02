@@ -309,11 +309,11 @@ export function ServicesGrid() {
                     const imageAlt = mainImage?.alt || service.title?.ar || 'صورة الخدمة';
                     
                     return imageUrl ? (
-                      <div className="relative w-full h-40 sm:h-48 overflow-hidden bg-gray-50 rounded-t-lg">
+                      <div className="relative w-full h-40 sm:h-48 overflow-hidden bg-white border-b border-gray-100 rounded-t-lg flex items-center justify-center">
                         <img
                           src={imageUrl}
                           alt={imageAlt}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 p-2"
                           loading="lazy"
                           onError={(e) => {
                             // عرض placeholder بدلاً من إخفاء الصورة
