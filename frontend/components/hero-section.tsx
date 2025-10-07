@@ -81,23 +81,23 @@ export function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25"
+                  className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25 [&>*]:!text-black [&>*>*]:!text-black"
                   asChild
                 >
-                  <Link href="/services" className="flex items-center gap-2">
-                    اطلب خدمة
-                    <ArrowLeft className="h-5 w-5 rtl-flip group-hover:translate-x-1 transition-transform" />
+                  <Link href="/services" className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                    <span style={{color: '#000 !important'}}>اطلب خدمة</span>
+                    <ArrowLeft className="h-5 w-5 rtl-flip group-hover:translate-x-1 transition-transform" style={{color: '#000 !important'}} />
                   </Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25"
+                  className="border-2 border-primary/30 hover:bg-primary font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25 [&>*]:!text-black [&>*>*]:!text-black"
                   asChild
                 >
-                  <Link href={ctaLink} className="flex items-center gap-2">
-                    {ctaText}
-                    <ArrowLeft className="h-5 w-5 rtl-flip group-hover:translate-x-1 transition-transform" />
+                  <Link href={ctaLink} className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                    <span style={{color: '#000 !important'}}>{ctaText}</span>
+                    <ArrowLeft className="h-5 w-5 rtl-flip group-hover:translate-x-1 transition-transform" style={{color: '#000 !important'}} />
                   </Link>
                 </Button>
               </div>

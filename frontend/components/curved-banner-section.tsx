@@ -108,6 +108,11 @@ export default function CurvedBannerSection({
             subtitle: 'نحن نقدم أفضل الخدمات في التصميم والتطوير',
             description: 'اكتشف عالم التصميم الإبداعي معنا',
             icon: getStaticBannerImage(position, pageSlug),
+            ctaButton: {
+              text: 'ابدأ مشروعك الآن',
+              link: '/services',
+              style: 'primary'
+            },
             isActive: true,
             order: 1,
             createdAt: new Date().toISOString(),
@@ -122,6 +127,11 @@ export default function CurvedBannerSection({
           subtitle: 'نحن نقدم أفضل الخدمات في التصميم والتطوير',
           description: 'اكتشف عالم التصميم الإبداعي معنا',
           icon: getStaticBannerImage(position, pageSlug),
+          ctaButton: {
+            text: 'ابدأ مشروعك الآن',
+            link: '/services',
+            style: 'primary'
+          },
           isActive: true,
           order: 1,
           createdAt: new Date().toISOString(),
@@ -176,6 +186,17 @@ export default function CurvedBannerSection({
       default:
         return 'bg-gradient-to-r from-purple-700 to-purple-900 text-white hover:from-purple-600 hover:to-purple-800 shadow-xl hover:shadow-2xl font-extrabold border-2 border-purple-600/50 !text-white';
     }
+  };
+
+  const getSafeLink = (link: string) => {
+    // List of problematic links that should redirect to /services
+    const problematicLinks = ['/quote', '/services/all', '#services-list', '/services/logos', '/services/social-media'];
+    
+    if (!link || problematicLinks.includes(link)) {
+      return '/services';
+    }
+    
+    return link;
   };
 
   return (
@@ -299,11 +320,12 @@ export default function CurvedBannerSection({
             {banner.ctaButton && (
               <div className="pt-6">
                 <a
-                  href={banner.ctaButton.link}
-                  className={`inline-flex items-center gap-4 px-10 md:px-12 py-5 md:py-6 rounded-lg text-xl md:text-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${getButtonStyle(banner.ctaButton.style)} arabic-text`}
+                  href={getSafeLink(banner.ctaButton.link)}
+                  className={`inline-flex items-center gap-4 px-10 md:px-12 py-5 md:py-6 rounded-lg text-xl md:text-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${getButtonStyle(banner.ctaButton.style)} arabic-text [&>*]:!text-black [&>*>*]:!text-black`}
+                  style={{color: '#000 !important'}}
                 >
-                  <span className="text-white font-bold">{banner.ctaButton.text}</span>
-                  <ArrowLeft className="w-8 h-8 rtl-flip" />
+                  <span className="font-bold" style={{color: '#000 !important'}}>{banner.ctaButton.text}</span>
+                  <ArrowLeft className="w-8 h-8 rtl-flip" style={{color: '#000 !important'}} />
                 </a>
               </div>
             )}

@@ -348,10 +348,11 @@ export function ServicesPreview() {
                     <div className="flex justify-end">
                       <Link
                         href={`/services/${service.slug || service._id}`}
-                        className="inline-flex items-center justify-center whitespace-nowrap text-sm transition-all rounded-md gap-1.5 text-primary hover:bg-primary/10 arabic-text group/btn font-medium p-2 h-auto"
+                        className="inline-flex items-center justify-center whitespace-nowrap text-sm transition-all rounded-md gap-1.5 hover:bg-primary/10 arabic-text group/btn font-medium p-2 h-auto [&>*]:!text-black [&>*>*]:!text-black"
+                        style={{color: '#000 !important'}}
                       >
-                        عرض التفاصيل
-                        <ArrowLeft className="h-3 w-3 rtl-flip group-hover/btn:translate-x-1 transition-transform" />
+                        <span style={{color: '#000 !important'}}>عرض التفاصيل</span>
+                        <ArrowLeft className="h-3 w-3 rtl-flip group-hover/btn:translate-x-1 transition-transform" style={{color: '#000 !important'}} />
                       </Link>
                     </div>
                   </CardContent>
@@ -372,20 +373,20 @@ export function ServicesPreview() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 text-white font-bold arabic-text shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 rounded-lg border-2 border-purple-600/50"
+                  className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 font-bold arabic-text shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 rounded-lg border-2 border-purple-600/50 [&>*]:!text-black [&>*>*]:!text-black"
                   asChild
                 >
-                  <Link href="/services">
-                    تصفح جميع الخدمات
+                  <Link href="/services" style={{color: '#000 !important'}}>
+                    <span style={{color: '#000 !important'}}>تصفح جميع الخدمات</span>
                   </Link>
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-purple-900 font-bold arabic-text shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 rounded-lg border-2 border-gray-300/70"
+                  className="bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 font-bold arabic-text shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 rounded-lg border-2 border-gray-300/70 [&>*]:!text-black [&>*>*]:!text-black"
                   asChild
                 >
-                  <Link href="/contact">
-                    تواصل معنا
+                  <Link href="/contact" style={{color: '#000 !important'}}>
+                    <span style={{color: '#000 !important'}}>تواصل معنا</span>
                   </Link>
                 </Button>
               </div>

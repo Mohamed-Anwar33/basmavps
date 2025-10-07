@@ -97,6 +97,14 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
+      <style jsx>{`
+        .force-black-text,
+        .force-black-text *,
+        .force-black-text span,
+        .force-black-text a {
+          color: #000 !important;
+        }
+      `}</style>
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         <div className="absolute inset-0 opacity-20">
@@ -264,7 +272,7 @@ export default function SignupPage() {
                   <Button 
                     type="submit" 
                     disabled={loading} 
-                    className="w-full h-12 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none arabic-text group"
+                    className="w-full h-12 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none arabic-text group [&>*]:!text-black [&>*>*]:!text-black"
                   >
                     {loading ? (
                       <div className="flex items-center justify-center space-x-2">
@@ -272,9 +280,9 @@ export default function SignupPage() {
                         <span className="mr-2">جاري إنشاء الحساب...</span>
                       </div>
                     ) : (
-                      <div className="flex items-center justify-center space-x-2">
-                        <span>إنشاء حساب جديد</span>
-                        <ArrowRight className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                      <div className="flex items-center justify-center space-x-2" style={{color: '#000 !important'}}>
+                        <span style={{color: '#000 !important'}}>إنشاء حساب جديد</span>
+                        <ArrowRight className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" style={{color: '#000 !important'}} />
                       </div>
                     )}
                   </Button>
@@ -292,20 +300,21 @@ export default function SignupPage() {
                     لديك حساب بالفعل؟{" "}
                     <Link 
                       href="/login" 
-                      className="text-purple-400 hover:text-purple-300 font-semibold transition-colors hover:underline"
+                      className="font-semibold transition-colors hover:underline force-black-text"
+                      style={{color: '#000 !important', textDecoration: 'none'}}
                     >
-                      تسجيل الدخول
+                      <span style={{color: '#000 !important'}} className="force-black-text">تسجيل الدخول</span>
                     </Link>
                   </p>
                   
                   <div className="text-xs text-gray-400 arabic-text leading-relaxed">
                     بإنشاء حساب، أنت توافق على{" "}
-                    <Link href="/policies#terms" className="text-purple-400 hover:underline">
-                      شروط الخدمة
+                    <Link href="/policies#terms" className="hover:underline force-black-text" style={{color: '#000 !important', textDecoration: 'none'}}>
+                      <span style={{color: '#000 !important'}} className="force-black-text">شروط الخدمة</span>
                     </Link>
                     {" "}و{" "}
-                    <Link href="/policies#privacy" className="text-purple-400 hover:underline">
-                      سياسة الخصوصية
+                    <Link href="/policies#privacy" className="hover:underline force-black-text" style={{color: '#000 !important', textDecoration: 'none'}}>
+                      <span style={{color: '#000 !important'}} className="force-black-text">سياسة الخصوصية</span>
                     </Link>
                   </div>
                 </div>

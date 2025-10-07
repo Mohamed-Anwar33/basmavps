@@ -373,27 +373,26 @@ export const forgotPassword = async (req, res) => {
       });
     }
 
-    // Generate reset token
-    const resetToken = generateSecureToken();
+    // Generate 6-digit OTP code
+    const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
     const resetTokenExpiry = new Date();
-    resetTokenExpiry.setHours(resetTokenExpiry.getHours() + 1); // 1 hour expiry
+    resetTokenExpiry.setMinutes(resetTokenExpiry.getMinutes() + 15); // 15 minutes expiry
 
-    user.passwordResetToken = resetToken;
+    user.passwordResetToken = resetCode;
     user.passwordResetExpires = resetTokenExpiry;
     await user.save();
-
-    // Send reset email
-    const resetUrl = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}`;
+    
+    console.log('Reset Code generated:', resetCode); // Debug log
     
     try {
       await sendEmail({
         to: user.email,
-        subject: 'إعادة تعيين كلمة المرور - Password Reset',
-        template: 'password-reset',
+        subject: 'رمز إعادة تعيين كلمة المرور - Password Reset Code',
+        template: 'password-reset-otp',
         data: {
           name: user.name,
-          resetUrl,
-          expiresIn: '1 hour'
+          resetCode,
+          expiresIn: '15 دقيقة'
         }
       });
     } catch (emailError) {
@@ -409,7 +408,11 @@ export const forgotPassword = async (req, res) => {
 
     res.json({
       success: true,
-      message: 'Password reset link sent to your email'
+      message: 'تم إرسال رمز إعادة تعيين كلمة المرور إلى بريدك الإلكتروني',
+      // Include code in development for testing
+      ...(process.env.NODE_ENV === 'development' && { 
+        devCode: resetCode
+      })
     });
 
   } catch (error) {
@@ -641,6 +644,81 @@ export const activateAccount = async (req, res) => {
     res.status(500).json({
       success: false,
       error: 'Account activation failed'
+    });
+  }
+};
+
+/**
+ * @swagger
+ * /api/auth/verify-reset-code:
+ *   post:
+ *     summary: Verify password reset code
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - code
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *               code:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Code verified successfully
+ *       400:
+ *         description: Invalid or expired code
+ */
+export const verifyResetCode = async (req, res) => {
+  try {
+    const { email, code } = req.body;
+
+    if (!email || !code) {
+      return res.status(400).json({
+        success: false,
+        error: 'Email and code are required'
+      });
+    }
+
+    const user = await User.findByEmail(email);
+    
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid reset code'
+      });
+    }
+
+    // Check if code matches and is not expired
+    if (!user.passwordResetToken || user.passwordResetToken !== code) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid reset code'
+      });
+    }
+
+    if (!user.passwordResetExpires || user.passwordResetExpires < new Date()) {
+      return res.status(400).json({
+        success: false,
+        error: 'Reset code has expired'
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Code verified successfully'
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: 'Code verification failed'
     });
   }
 };

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://basmatdesign.com'
+  const baseUrl = 'https://basmatdesign.cloud'
   
   // Static pages
   const staticPages = [

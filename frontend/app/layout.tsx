@@ -9,11 +9,11 @@ import { ErrorBoundary } from "@/components/error-boundary"
 
 export const metadata: Metadata = {
   title: {
-    default: "بصمة تصميم | خدمات التصميم والمحتوى الرقمي في السعودية",
+    default: "بصمة تصميم | خدمات التصميم والمحتوى الرقمي الاحترافية",
     template: "%s | بصمة تصميم"
   },
-  description: "شركة بصمة تصميم - متخصصون في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي. خدمات تصميم احترافية في السعودية مع فريق خبراء.",
-  keywords: ["تصميم جرافيك", "هوية بصرية", "سوشيال ميديا", "تصميم شعارات", "محتوى رقمي", "تصميم السعودية", "بصمة تصميم"],
+  description: "بصمة تصميم - شركة رائدة متخصصة في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي. نقدم خدمات تصميم احترافية عالية الجودة مع فريق من الخبراء المبدعين.",
+  keywords: ["بصمة تصميم", "تصميم جرافيك", "هوية بصرية", "سوشيال ميديا", "تصميم شعارات", "محتوى رقمي", "تصميم احترافي", "شركة تصميم", "خدمات تصميم", "تصميم إبداعي", "Basmat Design", "تصميم عربي"],
   authors: [{ name: "بصمة تصميم", url: "https://basmatdesign.cloud" }],
   creator: "بصمة تصميم",
   publisher: "بصمة تصميم",
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ar_SA',
     url: 'https://basmatdesign.cloud',
-    title: 'بصمة تصميم | خدمات التصميم والمحتوى الرقمي في السعودية',
-    description: 'شركة بصمة تصميم - متخصصون في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي. خدمات تصميم احترافية في السعودية مع فريق خبراء.',
+    title: 'بصمة تصميم | خدمات التصميم والمحتوى الرقمي الاحترافية',
+    description: 'بصمة تصميم - شركة رائدة متخصصة في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي. نقدم خدمات تصميم احترافية عالية الجودة مع فريق من الخبراء المبدعين.',
     siteName: 'بصمة تصميم',
     images: [{
       url: '/og-image.jpg',
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'بصمة تصميم | خدمات التصميم والمحتوى الرقمي في السعودية',
-    description: 'شركة بصمة تصميم - متخصصون في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي.',
+    title: 'بصمة تصميم | خدمات التصميم والمحتوى الرقمي الاحترافية',
+    description: 'بصمة تصميم - شركة رائدة متخصصة في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي الاحترافي.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -96,12 +96,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": ["Organization", "CreativeWork"],
               "name": "بصمة تصميم",
-              "alternateName": "Basmat Design",
-              "url": "https://basmatdesign.com",
-              "logo": "https://basmatdesign.com/logo.png",
-              "description": "شركة بصمة تصميم - متخصصون في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي",
+              "alternateName": ["Basmat Design", "بصمة تصميم السعودية", "Basmat Design Saudi Arabia"],
+              "url": "https://basmatdesign.cloud",
+              "logo": "https://basmatdesign.cloud/LOGO.png",
+              "description": "بصمة تصميم - شركة رائدة متخصصة في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي الاحترافي. نقدم خدمات تصميم إبداعية عالية الجودة",
+              "foundingDate": "2020",
+              "slogan": "نصمم، نكتب، ونبني لك هوية تترك أثرًا",
+              "keywords": ["بصمة تصميم", "تصميم جرافيك", "هوية بصرية", "سوشيال ميديا", "تصميم شعارات", "محتوى رقمي", "تصميم احترافي", "شركة تصميم", "Basmat Design"],
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "SA",
@@ -121,19 +124,66 @@ export default function RootLayout({
                 {
                   "@type": "Service",
                   "name": "تصميم الهوية البصرية",
-                  "description": "خدمات تصميم الشعارات والهوية البصرية الاحترافية"
+                  "description": "خدمات تصميم الشعارات والهوية البصرية الاحترافية",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "بصمة تصميم"
+                  }
                 },
                 {
                   "@type": "Service",
                   "name": "إدارة السوشيال ميديا",
-                  "description": "إدارة وتصميم محتوى منصات التواصل الاجتماعي"
+                  "description": "إدارة وتصميم محتوى منصات التواصل الاجتماعي",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "بصمة تصميم"
+                  }
                 },
                 {
                   "@type": "Service",
                   "name": "تصميم البنرات الإعلانية",
-                  "description": "تصميم بنرات إعلانية احترافية للحملات التسويقية"
+                  "description": "تصميم بنرات إعلانية احترافية للحملات التسويقية",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "بصمة تصميم"
+                  }
+                },
+                {
+                  "@type": "Service",
+                  "name": "كتابة المحتوى",
+                  "description": "خدمات كتابة المحتوى الإبداعي والتسويقي",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "بصمة تصميم"
+                  }
+                },
+                {
+                  "@type": "Service",
+                  "name": "تصميم السير الذاتية",
+                  "description": "تصميم سير ذاتية احترافية ومميزة",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "بصمة تصميم"
+                  }
                 }
-              ]
+              ],
+              "areaServed": {
+                "@type": "Country",
+                "name": "Saudi Arabia"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "خدمات بصمة تصميم",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "بصمة تصميم - خدمات التصميم الشاملة"
+                    }
+                  }
+                ]
+              }
             })
           }}
           suppressHydrationWarning

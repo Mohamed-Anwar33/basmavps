@@ -62,14 +62,16 @@ export function ServiceSidebar({
               <span className="font-medium arabic-text text-[#4b2e83]">{nonRefundable ? 'غير قابلة للاسترجاع' : 'قابلة للاسترجاع'}</span>
             </div>
           </div>
-          <Button asChild size="lg" className="w-full bg-gradient-to-r from-[#4b2e83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4b2e83] text-white font-semibold mb-3 sm:mb-4 arabic-text shadow-lg hover:shadow-xl transition-all text-sm sm:text-base py-3 sm:py-4">
-            <Link href={`/order/payment?service=${serviceId}`} className="flex items-center justify-center gap-2">
-              <span>اطلب الخدمة الآن</span>
-              <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5 rtl-flip" />
+          <Button asChild size="lg" className="w-full bg-gradient-to-r from-[#4b2e83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4b2e83] font-semibold mb-3 sm:mb-4 arabic-text shadow-lg hover:shadow-xl transition-all text-sm sm:text-base py-3 sm:py-4 [&>*]:!text-black [&>*>*]:!text-black">
+            <Link href={`/order/payment?service=${serviceId}`} className="flex items-center justify-center gap-2" style={{color: '#000 !important'}}>
+              <span style={{color: '#000 !important'}}>اطلب الخدمة الآن</span>
+              <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5 rtl-flip" style={{color: '#000 !important'}} />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="sm" className="w-full arabic-text border-[#4b2e83] text-[#4b2e83] hover:bg-[#4b2e83] hover:text-white transition-colors text-xs sm:text-sm py-2 sm:py-3">
-            <Link href="/services">تصفح خدمات أخرى</Link>
+          <Button asChild variant="outline" size="sm" className="w-full arabic-text border-[#4b2e83] hover:bg-[#4b2e83] transition-colors text-xs sm:text-sm py-2 sm:py-3 [&>*]:!text-black [&>*>*]:!text-black">
+            <Link href="/services" style={{color: '#000 !important'}}>
+              <span style={{color: '#000 !important'}}>تصفح خدمات أخرى</span>
+            </Link>
           </Button>
           
           {/* Contact Info */}

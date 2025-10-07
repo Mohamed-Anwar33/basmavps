@@ -7,9 +7,10 @@ import {
   forgotPassword, 
   resetPassword, 
   getCurrentUser,
-  activateAccount 
+  activateAccount,
+  verifyResetCode 
 } from '../controllers/authController.js';
-import { authLimiter } from '../middleware/security.js';
+import { authLimiter, resetRateLimit } from '../middleware/security.js';
 import {
   verifyEmail,
   resendVerificationCode,
@@ -45,10 +46,18 @@ router.get('/verification-status', authenticate, getVerificationStatus);
 router.post('/login', authLimiter, validateSchema(loginSchema), login);
 router.post('/refresh', refreshToken);
 router.post('/forgot-password', authLimiter, validateSchema(forgotPasswordSchema), forgotPassword);
+router.post('/verify-reset-code', authLimiter, verifyResetCode);
 router.post('/reset-password', authLimiter, validateSchema(resetPasswordSchema), resetPassword);
 
 // Protected routes
 router.get('/me', authenticate, getCurrentUser);
 router.post('/logout', authenticate, logout);
+
+// Development only - reset rate limits
+if (process.env.NODE_ENV === 'development') {
+  router.post('/dev/reset-limits', (req, res) => {
+    res.json({ success: true, message: 'Rate limits reset for development' });
+  });
+}
 
 export default router;

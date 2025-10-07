@@ -83,8 +83,8 @@ const BlogContent = () => {
         
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/20 px-4 py-2 rounded-full text-sm font-medium mb-6 arabic-text backdrop-blur-sm">
-              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-700/10 to-purple-900/10 border border-purple-200/20 px-4 py-2 rounded-full text-sm font-medium mb-6 arabic-text backdrop-blur-sm">
+              <div className="w-2 h-2 bg-gradient-to-r from-purple-700 to-purple-900 rounded-full animate-pulse"></div>
               مقالات مفيدة ونصائح عملية
             </div>
             
@@ -126,7 +126,7 @@ const BlogContent = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`whitespace-nowrap arabic-text transition-all duration-200 rounded-full ${
                   selectedCategory === category 
-                    ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm hover:shadow-md" 
+                    ? "bg-gradient-to-r from-purple-700 to-purple-900 text-white shadow-sm hover:shadow-md" 
                     : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
                 }`}
               >
@@ -200,7 +200,7 @@ const BlogContent = () => {
                   {/* Featured Badge for first article */}
                   {index === 0 && (
                     <div className="absolute top-3 left-3">
-                      <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0 text-xs arabic-text">
+                      <Badge className="bg-gradient-to-r from-purple-700 to-purple-900 text-white border-0 text-xs arabic-text">
                         مميز ⭐
                       </Badge>
                     </div>
@@ -243,11 +243,11 @@ const BlogContent = () => {
                   {/* Read More Button */}
                   <Button 
                     asChild 
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-0 rounded-xl transition-all duration-300 hover:shadow-md arabic-text"
+                    className="w-full bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 border-0 rounded-xl transition-all duration-300 hover:shadow-md arabic-text [&>*]:!text-black [&>*>*]:!text-black"
                   >
-                    <Link href={`/blog/${article.slug}`} className="flex items-center justify-center gap-2">
-                      <span>قراءة المقال</span>
-                      <ArrowLeft className="h-4 w-4 rtl-flip group-hover:translate-x-1 transition-transform duration-300" />
+                    <Link href={`/blog/${article.slug}`} className="flex items-center justify-center gap-2" style={{color: '#000 !important'}}>
+                      <span style={{color: '#000 !important'}}>قراءة المقال</span>
+                      <ArrowLeft className="h-4 w-4 rtl-flip group-hover:translate-x-1 transition-transform duration-300" style={{color: '#000 !important'}} />
                     </Link>
                   </Button>
                 </CardContent>

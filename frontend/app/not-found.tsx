@@ -22,22 +22,24 @@ export default function NotFound() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-            <Button size="lg" className="arabic-text bg-primary hover:bg-accent text-primary-foreground" asChild>
-              <Link href="/" className="flex items-center gap-2">
-                <Home className="h-5 w-5" />
-                العودة للصفحة الرئيسية
+            <Button size="lg" className="arabic-text bg-primary hover:bg-accent [&>*]:!text-black [&>*>*]:!text-black" asChild>
+              <Link href="/" className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                <Home className="h-5 w-5" style={{color: '#000 !important'}} />
+                <span style={{color: '#000 !important'}}>العودة للصفحة الرئيسية</span>
               </Link>
             </Button>
 
-            <Button size="lg" variant="outline" className="arabic-text border-primary text-primary hover:bg-primary hover:text-primary-foreground" asChild>
-              <Link href="/services" className="flex items-center gap-2">
-                تصفح خدماتنا
-                <ArrowLeft className="h-5 w-5 rtl-flip" />
+            <Button size="lg" variant="outline" className="arabic-text border-primary hover:bg-primary [&>*]:!text-black [&>*>*]:!text-black" asChild>
+              <Link href="/services" className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                <span style={{color: '#000 !important'}}>تصفح خدماتنا</span>
+                <ArrowLeft className="h-5 w-5 rtl-flip" style={{color: '#000 !important'}} />
               </Link>
             </Button>
 
-            <Button size="lg" variant="ghost" className="arabic-text text-primary hover:bg-primary/10" asChild>
-              <Link href="/contact">التواصل مع الدعم</Link>
+            <Button size="lg" variant="ghost" className="arabic-text hover:bg-primary/10 [&>*]:!text-black [&>*>*]:!text-black" asChild>
+              <Link href="/contact" style={{color: '#000 !important'}}>
+                <span style={{color: '#000 !important'}}>التواصل مع الدعم</span>
+              </Link>
             </Button>
           </div>
 
@@ -76,8 +78,10 @@ export default function NotFound() {
                 تواصل معنا مباشرة وسنساعدك في الوصول لما تبحث عنه.
               </p>
               <div className="mt-4 flex flex-col gap-2">
-                <Button asChild className="arabic-text">
-                  <Link href="/contact">تواصل معنا</Link>
+                <Button asChild className="arabic-text [&>*]:!text-black [&>*>*]:!text-black">
+                  <Link href="/contact" style={{color: '#000 !important'}}>
+                    <span style={{color: '#000 !important'}}>تواصل معنا</span>
+                  </Link>
                 </Button>
               </div>
             </div>

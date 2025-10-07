@@ -118,24 +118,24 @@ export function ClosingCTA() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-6">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25 h-auto"
+              className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25 h-auto [&>*]:!text-black [&>*>*]:!text-black [&>*>*>*]:!text-black"
               asChild
             >
-              <Link href={ctaData.primaryButton.link} className="flex items-center gap-2">
-                {ctaData.primaryButton.text.ar}
-                <ArrowLeft className="h-5 w-5 rtl-flip group-hover:translate-x-1 transition-transform" />
+              <Link href={ctaData.primaryButton.link} className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                <span style={{color: '#000 !important'}}>{ctaData.primaryButton.text.ar}</span>
+                <ArrowLeft className="h-5 w-5 rtl-flip group-hover:translate-x-1 transition-transform" style={{color: '#000 !important'}} />
               </Link>
             </Button>
 
             <Button
               variant="outline"
               size="lg"
-              className="font-semibold text-lg px-8 py-4 arabic-text border-primary/30 text-primary hover:bg-primary/10 hover:border-primary group bg-card/80 backdrop-blur-sm transition-all duration-300 hover:scale-105 h-auto"
+              className="font-semibold text-lg px-8 py-4 arabic-text border-primary/30 hover:bg-primary/10 hover:border-primary group bg-card/80 backdrop-blur-sm transition-all duration-300 hover:scale-105 h-auto [&>*]:!text-black [&>*>*]:!text-black [&>*>*>*]:!text-black"
               asChild
             >
-              <Link href="/contact" className="flex items-center gap-2">
-                <MessageCircle className="h-5 w-5" />
-                تواصل معنا
+              <Link href="/contact" className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                <MessageCircle className="h-5 w-5" style={{color: '#000 !important'}} />
+                <span style={{color: '#000 !important'}}>تواصل معنا</span>
               </Link>
             </Button>
           </div>

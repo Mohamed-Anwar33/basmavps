@@ -187,27 +187,27 @@ export function LuxuryBanner({
                     
                     <Button 
                       size="lg" 
-                      className="relative bg-gradient-to-r from-[#4b2e83] to-[#7a4db3] backdrop-blur-sm text-white hover:from-[#4b2e83]/90 hover:to-[#7a4db3]/90 font-bold arabic-text group whitespace-nowrap shadow-2xl hover:shadow-[#7a4db3]/30 transition-all duration-500 hover:scale-105 text-lg px-6 py-3 h-auto rounded-lg border border-[#7a4db3]/30 !text-white" 
+                      className="relative bg-gradient-to-r from-[#4b2e83] to-[#7a4db3] backdrop-blur-sm hover:from-[#4b2e83]/90 hover:to-[#7a4db3]/90 font-bold arabic-text group whitespace-nowrap shadow-2xl hover:shadow-[#7a4db3]/30 transition-all duration-500 hover:scale-105 text-lg px-6 py-3 h-auto rounded-lg border border-[#7a4db3]/30 [&>*]:!text-black [&>*>*]:!text-black [&>*>*>*]:!text-black" 
                       asChild
                     >
                       {isInternal ? (
-                        <Link href={ctaLink} className="flex items-center gap-3">
-                          <span className="relative text-white font-bold">
+                        <Link href={ctaLink} className="flex items-center gap-3" style={{color: '#000 !important'}}>
+                          <span className="relative font-bold" style={{color: '#000 !important'}}>
                             {ctaText}
                             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                           </span>
                           <div className="relative">
-                            <ArrowLeft className="h-8 w-8 rtl-flip group-hover:translate-x-2 transition-transform duration-300" />
+                            <ArrowLeft className="h-8 w-8 rtl-flip group-hover:translate-x-2 transition-transform duration-300" style={{color: '#000 !important'}} />
                           </div>
                         </Link>
                       ) : (
-                        <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-                          <span className="relative text-white font-bold">
+                        <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3" style={{color: '#000 !important'}}>
+                          <span className="relative font-bold" style={{color: '#000 !important'}}>
                             {ctaText}
                             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                           </span>
                           <div className="relative">
-                            <ArrowLeft className="h-8 w-8 rtl-flip group-hover:translate-x-2 transition-transform duration-300" />
+                            <ArrowLeft className="h-8 w-8 rtl-flip group-hover:translate-x-2 transition-transform duration-300" style={{color: '#000 !important'}} />
                           </div>
                         </a>
                       )}
@@ -220,13 +220,17 @@ export function LuxuryBanner({
                 <Button
                   variant="outline"
                   size="lg"
-                  className="arabic-text border-white/25 text-[#4b2e83] hover:bg-[#f4f4f6]/10 backdrop-blur-sm h-auto px-8 py-5 bg-[#f4f4f6]/90"
+                  className="arabic-text border-white/25 hover:bg-[#f4f4f6]/10 backdrop-blur-sm h-auto px-8 py-5 bg-[#f4f4f6]/90 [&>*]:!text-black [&>*>*]:!text-black [&>*>*>*]:!text-black"
                   asChild
                 >
                   {secondaryCtaLink.startsWith("/") || secondaryCtaLink.startsWith("#") ? (
-                    <Link href={secondaryCtaLink}>{secondaryCtaText}</Link>
+                    <Link href={secondaryCtaLink} style={{color: '#000 !important'}}>
+                      <span style={{color: '#000 !important'}}>{secondaryCtaText}</span>
+                    </Link>
                   ) : (
-                    <a href={secondaryCtaLink} target="_blank" rel="noopener noreferrer">{secondaryCtaText}</a>
+                    <a href={secondaryCtaLink} target="_blank" rel="noopener noreferrer" style={{color: '#000 !important'}}>
+                      <span style={{color: '#000 !important'}}>{secondaryCtaText}</span>
+                    </a>
                   )}
                 </Button>
               )}

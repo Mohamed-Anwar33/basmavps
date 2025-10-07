@@ -22,7 +22,7 @@ export const generalLimiter = rateLimit({
  */
 export const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: process.env.NODE_ENV === 'production' ? 3 : 5, // stricter in production
+  max: process.env.NODE_ENV === 'production' ? 3 : 50, // more lenient in development
   message: {
     success: false,
     error: 'Too many authentication attempts, please try again later.'
@@ -36,7 +36,7 @@ export const authLimiter = rateLimit({
  */
 export const passwordResetLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
-  max: 3, // limit each IP to 3 password reset requests per hour
+  max: process.env.NODE_ENV === 'production' ? 3 : 20, // more lenient in development
   message: {
     success: false,
     error: 'Too many password reset attempts, please try again later.'
@@ -44,6 +44,22 @@ export const passwordResetLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
+
+/**
+ * Development helper to reset rate limits
+ */
+export const resetRateLimit = (req, res, next) => {
+  if (process.env.NODE_ENV === 'development') {
+    // Clear rate limit stores in development
+    if (authLimiter.resetKey) {
+      authLimiter.resetKey(req.ip);
+    }
+    if (passwordResetLimiter.resetKey) {
+      passwordResetLimiter.resetKey(req.ip);
+    }
+  }
+  next();
+};
 
 /**
  * Upload rate limiting - زودت حد الرفع للصور

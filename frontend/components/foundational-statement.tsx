@@ -80,21 +80,23 @@ export function FoundationalStatement() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25"
+              className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25 [&>*]:!text-black [&>*>*]:!text-black"
               asChild
             >
-              <Link href={ctaPrimaryLink} className="flex items-center gap-2">
-                {ctaPrimaryText}
-                <Sparkles className="h-5 w-5 group-hover:rotate-12 transition-transform" />
+              <Link href={ctaPrimaryLink} className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                <span style={{color: '#000 !important'}}>{ctaPrimaryText}</span>
+                <Sparkles className="h-5 w-5 group-hover:rotate-12 transition-transform" style={{color: '#000 !important'}} />
               </Link>
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="font-semibold arabic-text border-2 border-primary/20 text-foreground hover:bg-primary/10 hover:border-primary/40 bg-card/50 backdrop-blur-sm text-lg px-8 py-4"
+              className="font-semibold arabic-text border-2 border-primary/20 hover:bg-primary/10 hover:border-primary/40 bg-card/50 backdrop-blur-sm text-lg px-8 py-4 [&>*]:!text-black [&>*>*]:!text-black"
               asChild
             >
-              <Link href={ctaSecondaryLink}>{ctaSecondaryText}</Link>
+              <Link href={ctaSecondaryLink} style={{color: '#000 !important'}}>
+                <span style={{color: '#000 !important'}}>{ctaSecondaryText}</span>
+              </Link>
             </Button>
           </div>
         </div>

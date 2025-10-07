@@ -98,22 +98,30 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-2">
             {/* Currency Selector */}
             <div className="scale-90 origin-center"><CurrencySelector size="sm" /></div>
-            <Button asChild className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] text-white font-bold arabic-text text-base px-4 py-2 h-auto shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83]">
-              <Link href="/order">اطلب خدمة</Link>
+            <Button asChild className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] font-bold arabic-text text-base px-4 py-2 h-auto shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83] [&>*]:!text-black [&>*>*]:!text-black">
+              <Link href="/order" style={{color: '#000 !important'}}>
+                <span style={{color: '#000 !important'}}>اطلب خدمة</span>
+              </Link>
             </Button>
             {!user ? (
               <>
-                <Button asChild variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10">
-                  <Link href="/login">تسجيل الدخول</Link>
+                <Button asChild variant="ghost" className="arabic-text font-bold hover:bg-[#4B2E83]/10 [&>*]:!text-black [&>*>*]:!text-black">
+                  <Link href="/login" style={{color: '#000 !important'}}>
+                    <span style={{color: '#000 !important'}}>تسجيل الدخول</span>
+                  </Link>
                 </Button>
-                <Button asChild className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] text-white font-bold arabic-text text-base px-4 py-2 h-auto shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83]">
-                  <Link href="/signup">حساب جديد</Link>
+                <Button asChild className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] font-bold arabic-text text-base px-4 py-2 h-auto shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83] [&>*]:!text-black [&>*>*]:!text-black">
+                  <Link href="/signup" style={{color: '#000 !important'}}>
+                    <span style={{color: '#000 !important'}}>حساب جديد</span>
+                  </Link>
                 </Button>
               </>
             ) : (
               <>
-                <Button asChild variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10">
-                  <Link href="/profile">صفحتي</Link>
+                <Button asChild variant="ghost" className="arabic-text font-bold hover:bg-[#4B2E83]/10 [&>*]:!text-black [&>*>*]:!text-black">
+                  <Link href="/profile" style={{color: '#000 !important'}}>
+                    <span style={{color: '#000 !important'}}>صفحتي</span>
+                  </Link>
                 </Button>
                 <span className="text-sm !text-gray-700 arabic-text">مرحبًا، {user.name?.split(' ')[0] || 'مستخدم'}</span>
                 <Button onClick={handleLogout} variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10">تسجيل الخروج</Button>
@@ -152,24 +160,32 @@ export function Header() {
               ))}
               <Button
                 asChild
-                className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] text-white font-bold arabic-text w-full text-lg py-3 h-auto mt-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83]"
+                className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] font-bold arabic-text w-full text-lg py-3 h-auto mt-4 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83] [&>*]:!text-black [&>*>*]:!text-black"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <Link href="/order">اطلب خدمة</Link>
+                <Link href="/order" style={{color: '#000 !important'}}>
+                  <span style={{color: '#000 !important'}}>اطلب خدمة</span>
+                </Link>
               </Button>
               {!user ? (
                 <div className="grid grid-cols-2 gap-2">
-                  <Button asChild variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10" onClick={() => setIsMenuOpen(false)}>
-                    <Link href="/login">تسجيل الدخول</Link>
+                  <Button asChild variant="ghost" className="arabic-text font-bold hover:bg-[#4B2E83]/10 [&>*]:!text-black [&>*>*]:!text-black" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/login" style={{color: '#000 !important'}}>
+                      <span style={{color: '#000 !important'}}>تسجيل الدخول</span>
+                    </Link>
                   </Button>
-                  <Button asChild className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] text-white font-bold arabic-text text-base px-4 py-2 h-auto shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83]" onClick={() => setIsMenuOpen(false)}>
-                    <Link href="/signup">حساب جديد</Link>
+                  <Button asChild className="bg-gradient-to-r from-[#4B2E83] to-[#7a4db3] hover:from-[#7a4db3] hover:to-[#4B2E83] font-bold arabic-text text-base px-4 py-2 h-auto shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#4B2E83] [&>*]:!text-black [&>*>*]:!text-black" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/signup" style={{color: '#000 !important'}}>
+                      <span style={{color: '#000 !important'}}>حساب جديد</span>
+                    </Link>
                   </Button>
                 </div>
               ) : (
                 <div className="grid gap-2">
-                  <Button asChild variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10" onClick={() => setIsMenuOpen(false)}>
-                    <Link href="/profile">صفحتي</Link>
+                  <Button asChild variant="ghost" className="arabic-text font-bold hover:bg-[#4B2E83]/10 [&>*]:!text-black [&>*>*]:!text-black" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/profile" style={{color: '#000 !important'}}>
+                      <span style={{color: '#000 !important'}}>صفحتي</span>
+                    </Link>
                   </Button>
                   <Button variant="ghost" className="arabic-text font-bold !text-black hover:!text-[#4B2E83] hover:bg-[#4B2E83]/10" onClick={() => { setIsMenuOpen(false); handleLogout() }}>
                     تسجيل الخروج

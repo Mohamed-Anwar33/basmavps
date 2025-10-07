@@ -224,9 +224,9 @@ export default function FAQPage() {
                   <p className="text-sm text-muted-foreground mb-4 arabic-text">
                     {pageSettings.contactText}
                   </p>
-                  <Button asChild size="sm" className="bg-primary hover:bg-accent text-primary-foreground">
-                    <Link href="/contact" className="arabic-text">
-                      تواصل معنا
+                  <Button asChild size="sm" className="bg-primary hover:bg-accent [&>*]:!text-black [&>*>*]:!text-black">
+                    <Link href="/contact" className="arabic-text" style={{color: '#000 !important'}}>
+                      <span style={{color: '#000 !important'}}>تواصل معنا</span>
                     </Link>
                   </Button>
                 </CardContent>
@@ -313,9 +313,9 @@ export default function FAQPage() {
                     <p className="text-sm text-muted-foreground mb-4 arabic-text">
                       احصل على استشارة مجانية لمساعدتك في اختيار الخدمة المناسبة
                     </p>
-                    <Button asChild variant="outline" size="sm">
-                      <Link href="/contact" className="arabic-text">
-                        طلب استشارة
+                    <Button asChild variant="outline" size="sm" className="[&>*]:!text-black [&>*>*]:!text-black">
+                      <Link href="/contact" className="arabic-text" style={{color: '#000 !important'}}>
+                        <span style={{color: '#000 !important'}}>طلب استشارة</span>
                       </Link>
                     </Button>
                   </CardContent>
@@ -328,10 +328,10 @@ export default function FAQPage() {
                     <p className="text-sm text-muted-foreground mb-4 arabic-text">
                       تعرف على جميع خدماتنا بالتفصيل والأسعار والمزايا
                     </p>
-                    <Button asChild variant="outline" size="sm">
-                      <Link href="/services" className="flex items-center gap-2 arabic-text">
-                        <span>عرض الخدمات</span>
-                        <ArrowRight className="h-4 w-4 rotate-180" />
+                    <Button asChild variant="outline" size="sm" className="[&>*]:!text-black [&>*>*]:!text-black">
+                      <Link href="/services" className="flex items-center gap-2 arabic-text" style={{color: '#000 !important'}}>
+                        <span style={{color: '#000 !important'}}>عرض الخدمات</span>
+                        <ArrowRight className="h-4 w-4 rotate-180" style={{color: '#000 !important'}} />
                       </Link>
                     </Button>
                   </CardContent>

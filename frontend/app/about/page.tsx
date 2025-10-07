@@ -583,15 +583,17 @@ export default async function AboutPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25 h-auto">
-                <Link href={(ctaPrimaryLink || '/contact')} className="flex items-center gap-2">
-                  <span>{ctaPrimaryText || 'تواصل معنا'}</span>
-                  <ArrowLeft className="h-5 w-5 rtl-flip group-hover:translate-x-1 transition-transform" />
+              <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary font-semibold text-lg px-8 py-4 arabic-text group transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/25 h-auto [&>*]:!text-black [&>*>*]:!text-black">
+                <Link href={(ctaPrimaryLink || '/contact')} className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                  <span style={{color: '#000 !important'}}>{ctaPrimaryText || 'تواصل معنا'}</span>
+                  <ArrowLeft className="h-5 w-5 rtl-flip group-hover:translate-x-1 transition-transform" style={{color: '#000 !important'}} />
                 </Link>
               </Button>
               
-              <Button asChild variant="outline" size="lg" className="font-semibold text-lg px-8 py-4 arabic-text border-primary/30 text-primary hover:bg-primary/10 hover:border-primary group bg-card/80 backdrop-blur-sm transition-all duration-300 hover:scale-105 h-auto">
-                <Link href={(ctaSecondaryLink || '/services')}>{ctaSecondaryText || 'تعرف على خدماتنا'}</Link>
+              <Button asChild variant="outline" size="lg" className="font-semibold text-lg px-8 py-4 arabic-text border-primary/30 hover:bg-primary/10 hover:border-primary group bg-card/80 backdrop-blur-sm transition-all duration-300 hover:scale-105 h-auto [&>*]:!text-black [&>*>*]:!text-black">
+                <Link href={(ctaSecondaryLink || '/services')} style={{color: '#000 !important'}}>
+                  <span style={{color: '#000 !important'}}>{ctaSecondaryText || 'تعرف على خدماتنا'}</span>
+                </Link>
               </Button>
             </div>
           </div>

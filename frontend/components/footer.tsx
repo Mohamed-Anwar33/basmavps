@@ -224,6 +224,68 @@ export function Footer() {
 
   return (
     <div className="relative">
+      <style jsx global>{`
+        .footer-link,
+        .footer-link *,
+        .footer-link span,
+        .footer-link:hover,
+        .footer-link:hover *,
+        .footer-link:hover span,
+        .footer-link:visited,
+        .footer-link:visited *,
+        .footer-link:visited span,
+        .footer-link:active,
+        .footer-link:active *,
+        .footer-link:active span,
+        .footer-link:focus,
+        .footer-link:focus *,
+        .footer-link:focus span {
+          color: #000 !important;
+          text-decoration: none !important;
+        }
+        
+        /* Force black color on all footer links */
+        footer a,
+        footer a *,
+        footer a span,
+        footer a:hover,
+        footer a:hover *,
+        footer a:hover span,
+        footer a:visited,
+        footer a:visited *,
+        footer a:visited span,
+        footer a:active,
+        footer a:active *,
+        footer a:active span,
+        footer a:focus,
+        footer a:focus *,
+        footer a:focus span,
+        footer .footer-link,
+        footer .footer-link *,
+        footer .footer-link span {
+          color: #000 !important;
+          text-decoration: none !important;
+        }
+        
+        /* Extra force for black text */
+        .force-black-text,
+        .force-black-text *,
+        .force-black-text span,
+        .force-black-text:hover,
+        .force-black-text:hover *,
+        .force-black-text:hover span,
+        .force-black-text:visited,
+        .force-black-text:visited *,
+        .force-black-text:visited span,
+        .force-black-text:active,
+        .force-black-text:active *,
+        .force-black-text:active span {
+          color: #000 !important;
+          fill: #000 !important;
+          stroke: #000 !important;
+          text-decoration: none !important;
+        }
+      `}</style>
       {/* Footer Image - Responsive floating between sections */}
       <div className="absolute -top-40 sm:top-8 md:-top-40 lg:-top-80 xl:-top-96 left-1/2 transform -translate-x-1/2 z-5 pointer-events-none">
         <Image 
@@ -381,9 +443,9 @@ export function Footer() {
             <h3 className="font-semibold text-white arabic-text text-base sm:text-lg">روابط سريعة</h3>
             <nav className="flex flex-col gap-2 sm:gap-3">
               {normalizedQuickLinks.map((l, i) => (
-                <Link key={i} href={l.href} className="text-white/70 hover:text-white transition-all duration-300 arabic-text group flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base">
-                  <ArrowLeft className="h-3 w-3 rtl-flip opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                  {l.label}
+                <Link key={i} href={l.href} className="footer-link force-black-text arabic-text group flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base" style={{color: '#000 !important', textDecoration: 'none !important'}}>
+                  <ArrowLeft className="h-3 w-3 rtl-flip opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all force-black-text" style={{color: '#000 !important', fill: '#000 !important', stroke: '#000 !important'}} />
+                  <span style={{color: '#000 !important', textDecoration: 'none !important'}} className="force-black-text">{l.label}</span>
                 </Link>
               ))}
             </nav>
@@ -394,9 +456,9 @@ export function Footer() {
             <h3 className="font-semibold text-white arabic-text text-base sm:text-lg">خدماتنا</h3>
             <nav className="flex flex-col gap-2 sm:gap-3">
               {servicesLinks.map((l, i) => (
-                <Link key={i} href={l.href} className="text-white/70 hover:text-white transition-all duration-300 arabic-text group flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base">
-                  <ArrowLeft className="h-3 w-3 rtl-flip opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                  {l.label}
+                <Link key={i} href={l.href} className="footer-link force-black-text arabic-text group flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base" style={{color: '#000 !important', textDecoration: 'none !important'}}>
+                  <ArrowLeft className="h-3 w-3 rtl-flip opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all force-black-text" style={{color: '#000 !important', fill: '#000 !important', stroke: '#000 !important'}} />
+                  <span style={{color: '#000 !important', textDecoration: 'none !important'}} className="force-black-text">{l.label}</span>
                 </Link>
               ))}
             </nav>
@@ -407,8 +469,8 @@ export function Footer() {
             <h3 className="font-semibold text-white arabic-text text-base sm:text-lg">تواصل معنا</h3>
             <div className="space-y-3">
               {email && (
-                <a href={`mailto:${email}`} className="text-white/70 hover:text-white transition-colors block text-sm sm:text-base break-all">
-                  {email}
+                <a href={`mailto:${email}`} className="footer-link force-black-text block text-sm sm:text-base break-all" style={{color: '#000 !important', textDecoration: 'none !important'}}>
+                  <span style={{color: '#000 !important'}}>{email}</span>
                 </a>
               )}
               <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
@@ -423,12 +485,12 @@ export function Footer() {
               </div>
               <Button
                 size="sm"
-                className="bg-gradient-to-r from-white/20 to-white/10 hover:from-white/30 hover:to-white/20 text-white font-medium arabic-text group transition-all duration-300 hover:scale-105 mt-3 sm:mt-4 border border-white/30 text-sm sm:text-base w-full sm:w-auto"
+                className="bg-gradient-to-r from-white/20 to-white/10 hover:from-white/30 hover:to-white/20 font-medium arabic-text group transition-all duration-300 hover:scale-105 mt-3 sm:mt-4 border border-white/30 text-sm sm:text-base w-full sm:w-auto [&>*]:!text-black [&>*>*]:!text-black"
                 asChild
               >
-                <Link href={finalWhatsAppLink || contactCtaLink} className="flex items-center justify-center gap-2">
-                  {contactCtaText}
-                  <ArrowLeft className="h-3 w-3 sm:h-4 sm:w-4 rtl-flip group-hover:translate-x-1 transition-transform" />
+                <Link href={finalWhatsAppLink || contactCtaLink} className="flex items-center justify-center gap-2" style={{color: '#000 !important'}}>
+                  <span style={{color: '#000 !important'}}>{contactCtaText}</span>
+                  <ArrowLeft className="h-3 w-3 sm:h-4 sm:w-4 rtl-flip group-hover:translate-x-1 transition-transform" style={{color: '#000 !important'}} />
                 </Link>
               </Button>
             </div>
@@ -438,6 +500,18 @@ export function Footer() {
         <div className="border-t border-white/20 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 text-center">
           <p className="text-white/80 arabic-text text-sm sm:text-base">{copyright}</p>
           <p className="text-xs sm:text-sm text-white/60 mt-2 arabic-text opacity-75">{refundNote}</p>
+          
+          {/* Designer Signature */}
+          <div className="mt-3">
+            <a 
+              href="https://wa.me/201226035742?text=مرحباً محمد أنور 👋%0A%0Aأعجبني تصميم موقع بصمة تصميم كثيراً! 🎨✨%0A%0Aأريد التحدث معك حول خدمات التصميم والتطوير 💼"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-white/70 hover:text-white/90 transition-colors font-bold"
+            >
+              Designed & Developed by Mohamed Anwar Eisa
+            </a>
+          </div>
         </div>
       </div>
     </footer>

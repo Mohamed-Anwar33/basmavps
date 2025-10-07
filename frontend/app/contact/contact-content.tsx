@@ -131,10 +131,10 @@ const ContactContent = () => {
 
               {isValidWhats(whatsappLink) && (
                 <div className="flex flex-wrap gap-3">
-                  <Button asChild className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white arabic-text">
-                    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                      تواصل عبر واتساب
-                      <ArrowLeft className="h-4 w-4 rtl-flip" />
+                  <Button asChild className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 arabic-text [&>*]:!text-black [&>*>*]:!text-black">
+                    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                      <span style={{color: '#000 !important'}}>تواصل عبر واتساب</span>
+                      <ArrowLeft className="h-4 w-4 rtl-flip" style={{color: '#000 !important'}} />
                     </a>
                   </Button>
                 </div>

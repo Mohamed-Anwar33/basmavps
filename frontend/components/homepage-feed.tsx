@@ -107,8 +107,10 @@ export function HomepageFeed() {
           <div className="mb-16">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl md:text-3xl font-bold text-primary arabic-text">أحدث المقالات</h2>
-              <Button asChild variant="outline" size="sm" className="arabic-text">
-                <Link href="/blog">عرض جميع المقالات</Link>
+              <Button asChild variant="outline" size="sm" className="arabic-text [&>*]:!text-black [&>*>*]:!text-black">
+                <Link href="/blog" style={{color: '#000 !important'}}>
+                  <span style={{color: '#000 !important'}}>عرض جميع المقالات</span>
+                </Link>
               </Button>
             </div>
 
@@ -135,10 +137,10 @@ export function HomepageFeed() {
                         <span className="arabic-text">{new Date(b.createdAt).toLocaleDateString("ar-SA")}</span>
                       </div>
                     </div>
-                    <Button asChild variant="ghost" size="sm" className="p-0 h-auto justify-start text-primary arabic-text">
-                      <Link href={`/blog/${b.slug}`} className="flex items-center gap-2">
-                        <span>قراءة المقال</span>
-                        <ArrowLeft className="h-3 w-3 rtl-flip" />
+                    <Button asChild variant="ghost" size="sm" className="p-0 h-auto justify-start arabic-text [&>*]:!text-black [&>*>*]:!text-black">
+                      <Link href={`/blog/${b.slug}`} className="flex items-center gap-2" style={{color: '#000 !important'}}>
+                        <span style={{color: '#000 !important'}}>قراءة المقال</span>
+                        <ArrowLeft className="h-3 w-3 rtl-flip" style={{color: '#000 !important'}} />
                       </Link>
                     </Button>
                   </CardContent>
@@ -153,8 +155,10 @@ export function HomepageFeed() {
           <div>
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl md:text-3xl font-bold text-primary arabic-text">الأسئلة الشائعة</h2>
-              <Button asChild variant="outline" size="sm" className="arabic-text">
-                <Link href="/faq">عرض الكل</Link>
+              <Button asChild variant="outline" size="sm" className="arabic-text [&>*]:!text-black [&>*>*]:!text-black">
+                <Link href="/faq" style={{color: '#000 !important'}}>
+                  <span style={{color: '#000 !important'}}>عرض الكل</span>
+                </Link>
               </Button>
             </div>
 

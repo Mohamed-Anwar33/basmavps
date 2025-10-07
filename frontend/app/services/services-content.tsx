@@ -275,11 +275,15 @@ export default function ServicesContent() {
             نقدم خدمات مخصصة حسب احتياجاتك. تواصل معنا لمناقشة مشروعك الخاص
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-primary hover:bg-accent text-primary-foreground font-medium arabic-text">
-              <Link href="/contact">تواصل لطلب خدمة مخصصة</Link>
+            <Button asChild size="lg" className="bg-primary hover:bg-accent font-medium arabic-text [&>*]:!text-black [&>*>*]:!text-black">
+              <Link href="/contact" style={{color: '#000 !important'}}>
+                <span style={{color: '#000 !important'}}>تواصل لطلب خدمة مخصصة</span>
+              </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="arabic-text">
-              <Link href="/about">تعرف على فريقنا</Link>
+            <Button asChild variant="outline" size="lg" className="arabic-text [&>*]:!text-black [&>*>*]:!text-black">
+              <Link href="/about" style={{color: '#000 !important'}}>
+                <span style={{color: '#000 !important'}}>تعرف على فريقنا</span>
+              </Link>
             </Button>
           </div>
         </div>
