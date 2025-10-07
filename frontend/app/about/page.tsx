@@ -289,6 +289,25 @@ export default async function AboutPage() {
             ))}
           </div>
         </div>
+        
+        {/* Designer Signature */}
+        <div className="container mx-auto px-4 relative z-10 mt-12">
+          <div className="text-center">
+            <div className="inline-block bg-white/95 backdrop-blur-md rounded-2xl px-8 py-6 border border-[#4B2E83]/20 hover:border-[#4B2E83]/40 transition-all duration-300 hover:shadow-xl shadow-lg">
+              <a 
+                href="https://wa.me/201226035742?text=مرحباً محمد أنور 👋%0A%0Aأعجبني تصميم موقع بصمة تصميم كثيراً! 🎨✨%0A%0Aأريد التحدث معك حول خدمات التصميم والتطوير 💼"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors font-bold text-lg"
+                style={{color: '#4B2E83 !important'}}
+              >
+                <span style={{color: '#4B2E83 !important'}}>
+                  Designed & Developed by Mohamed Anwar Eisa
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Process Section - Timeline Design */}

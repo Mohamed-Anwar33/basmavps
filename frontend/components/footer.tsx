@@ -500,18 +500,6 @@ export function Footer() {
         <div className="border-t border-white/20 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 text-center">
           <p className="text-white/80 arabic-text text-sm sm:text-base">{copyright}</p>
           <p className="text-xs sm:text-sm text-white/60 mt-2 arabic-text opacity-75">{refundNote}</p>
-          
-          {/* Designer Signature */}
-          <div className="mt-3">
-            <a 
-              href="https://wa.me/201226035742?text=مرحباً محمد أنور 👋%0A%0Aأعجبني تصميم موقع بصمة تصميم كثيراً! 🎨✨%0A%0Aأريد التحدث معك حول خدمات التصميم والتطوير 💼"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-white/70 hover:text-white/90 transition-colors font-bold"
-            >
-              Designed & Developed by Mohamed Anwar Eisa
-            </a>
-          </div>
         </div>
       </div>
     </footer>
