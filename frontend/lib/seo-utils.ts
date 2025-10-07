@@ -88,8 +88,8 @@ export function generateStructuredData(type: 'Organization' | 'WebPage' | 'Artic
         '@type': 'Organization',
         name: 'بصمة تصميم',
         alternateName: 'Basmat Design',
-        url: 'https://basmatdesign.com',
-        logo: 'https://basmatdesign.com/logo.png',
+        url: 'https://basmatdesign.cloud',
+        logo: 'https://basmatdesign.cloud/LOGO.png',
         description: 'شركة بصمة تصميم - متخصصون في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي',
         address: {
           '@type': 'PostalAddress',
@@ -125,7 +125,7 @@ export function generateStructuredData(type: 'Organization' | 'WebPage' | 'Artic
           name: 'بصمة تصميم',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://basmatdesign.com/logo.png'
+            url: 'https://basmatdesign.cloud/LOGO.png'
           }
         },
         datePublished: data.publishedTime,
@@ -150,7 +150,7 @@ export function generateStructuredData(type: 'Organization' | 'WebPage' | 'Artic
         isPartOf: {
           '@type': 'WebSite',
           name: 'بصمة تصميم',
-          url: 'https://basmatdesign.com'
+          url: 'https://basmatdesign.cloud'
         },
         ...data
       }
@@ -164,7 +164,7 @@ export function generateStructuredData(type: 'Organization' | 'WebPage' | 'Artic
         provider: {
           '@type': 'Organization',
           name: 'بصمة تصميم',
-          url: 'https://basmatdesign.com'
+          url: 'https://basmatdesign.cloud'
         },
         areaServed: {
           '@type': 'Country',

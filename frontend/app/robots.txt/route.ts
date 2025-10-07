@@ -41,8 +41,8 @@ Disallow: /api/
 Disallow: /_next/
 Disallow: /private/
 
-Sitemap: https://basmatdesign.com/sitemap.xml
-Host: https://basmatdesign.com`
+Sitemap: https://basmatdesign.cloud/sitemap.xml
+Host: https://basmatdesign.cloud`
 
   return new Response(robotsText, {
     headers: {

@@ -29,12 +29,12 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "بصمة تصميم | خدمات التصميم والمحتوى الرقمي في السعودية",
-    description: "شركة بصمة تصميم - متخصصون في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي.",
+    title: "بصمة تصميم | خدمات التصميم والمحتوى الرقمي الاحترافية",
+    description: "بصمة تصميم - شركة رائدة متخصصة في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي الاحترافي.",
     images: ["/og-image.jpg"]
   },
   alternates: {
-    canonical: "https://basmatdesign.com"
+    canonical: "https://basmatdesign.cloud"
   }
 }
 

@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Analytics } from "@vercel/analytics/next"
+// import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 import Providers from "@/components/providers"
@@ -194,7 +194,7 @@ export default function RootLayout({
           <Providers>
             <Suspense fallback={null}>{children}</Suspense>
           </Providers>
-          <Analytics />
+          {/* <Analytics /> */}
         </ErrorBoundary>
       </body>
     </html>
