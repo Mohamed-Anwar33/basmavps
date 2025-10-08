@@ -4,6 +4,9 @@ import { BlogPost } from "@/components/blog-post"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { apiFetch } from "@/lib/api"
+import { AutoSEOManager } from "@/components/seo/auto-seo-manager"
+import { Breadcrumbs } from "@/components/breadcrumbs"
+import { generateBlogMetadata } from "@/lib/seo-config"
 
 type BlogListItem = {
   _id: string
@@ -39,11 +42,18 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   try {
+    // جرب استخدام النظام الديناميكي الجديد أولاً
+    const dynamicMetadata = generateBlogMetadata(params.slug)
+    if (dynamicMetadata) {
+      return dynamicMetadata
+    }
+    
+    // إذا لم يوجد في النظام الديناميكي، استخدم API
     const res: any = await apiFetch(`/blogs/${params.slug}?lang=ar`)
     const post: any = res?.data?.blog || res || {}
     const titleText = typeof post.title === 'string' ? post.title : (post.title?.ar || post.title?.en || '')
     const excerptText = typeof post.excerpt === 'string' ? post.excerpt : (post.excerpt?.ar || post.excerpt?.en || '')
-    const title = `${titleText} | بصمة تصميم`
+    const title = `${titleText} - مدونة بصمة تصميم`
     const description = excerptText || ""
     const image = post.coverImage || "/og-image.png"
     return {

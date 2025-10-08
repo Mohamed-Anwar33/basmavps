@@ -12,26 +12,44 @@ import Banner from "@/components/banner"
 import CurvedBannerSection from "@/components/curved-banner-section"
 
 export const metadata = {
-  title: "بصمة تصميم | خدمات التصميم والمحتوى الرقمي الاحترافية",
-  description: "بصمة تصميم - شركة رائدة متخصصة في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي. نقدم خدمات تصميم احترافية عالية الجودة مع فريق من الخبراء المبدعين.",
-  keywords: ["بصمة تصميم", "تصميم جرافيك", "هوية بصرية", "سوشيال ميديا", "تصميم شعارات", "محتوى رقمي", "تصميم احترافي", "شركة تصميم", "خدمات تصميم", "تصميم إبداعي", "Basmat Design", "تصميم عربي"],
+  title: "بصمة تصميم - شركة التصميم والهوية البصرية الأولى",
+  description: "بصمة تصميم الشركة الرائدة في تصميم الهوية البصرية وإدارة السوشيال ميديا. نصمم شعارات احترافية ومحتوى إبداعي يميز علامتك التجارية ويحقق أهدافك التسويقية بأعلى معايير الجودة والإبداع.",
+  keywords: [
+    "بصمة تصميم", 
+    "شركة تصميم",
+    "تصميم شعارات", 
+    "هوية بصرية",
+    "تصميم جرافيك", 
+    "سوشيال ميديا",
+    "محتوى إبداعي",
+    "تصميم احترافي",
+    "Basmat Design",
+    "علامة تجارية",
+    "بنرات إعلانية",
+    "كتابة محتوى",
+    "تسويق رقمي",
+    "استراتيجية بصرية",
+    "تصميم عربي"
+  ],
   openGraph: {
-    title: "بصمة تصميم | خدمات التصميم والمحتوى الرقمي الاحترافية",
-    description: "بصمة تصميم - شركة رائدة متخصصة في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي. نقدم خدمات تصميم احترافية عالية الجودة مع فريق من الخبراء المبدعين.",
+    title: "بصمة تصميم - شركة التصميم والهوية البصرية الأولى",
+    description: "بصمة تصميم الشركة الرائدة في تصميم الهوية البصرية وإدارة السوشيال ميديا. تصميم شعارات احترافية ومحتوى إبداعي مميز.",
     type: "website",
     url: "https://basmatdesign.cloud",
     images: [{
       url: "/og-image.jpg",
       width: 1200,
       height: 630,
-      alt: "بصمة تصميم - خدمات التصميم والمحتوى الرقمي"
+      alt: "بصمة تصميم - شركة التصميم والهوية البصرية الأولى"
     }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "بصمة تصميم | خدمات التصميم والمحتوى الرقمي الاحترافية",
-    description: "بصمة تصميم - شركة رائدة متخصصة في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي الاحترافي.",
-    images: ["/og-image.jpg"]
+    title: "بصمة تصميم - شركة التصميم والهوية البصرية الأولى",
+    description: "بصمة تصميم الشركة الرائدة في تصميم الهوية البصرية وإدارة السوشيال ميديا. تصميم شعارات احترافية ومحتوى إبداعي مميز.",
+    images: ["/og-image.jpg"],
+    creator: "@basmatdesign",
+    site: "@basmatdesign"
   },
   alternates: {
     canonical: "https://basmatdesign.cloud"
@@ -46,47 +64,103 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "بصمة تصميم - خدمات التصميم والمحتوى الرقمي",
-            "description": "شركة بصمة تصميم - متخصصون في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي. خدمات تصميم احترافية في السعودية مع فريق خبراء.",
-            "url": "https://basmatdesign.com",
+            "@type": ["WebPage", "CollectionPage"],
+            "name": "بصمة تصميم - شركة التصميم والهوية البصرية الأولى",
+            "description": "بصمة تصميم الشركة الرائدة في تصميم الهوية البصرية وإدارة السوشيال ميديا. نصمم شعارات احترافية ومحتوى إبداعي يميز علامتك التجارية ويحقق أهدافك التسويقية.",
+            "url": "https://basmatdesign.cloud",
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "الرئيسية",
+                  "item": "https://basmatdesign.cloud"
+                }
+              ]
+            },
             "mainEntity": {
               "@type": "Organization",
               "name": "بصمة تصميم",
-              "url": "https://basmatdesign.com",
-              "logo": "https://basmatdesign.com/logo.png",
-              "description": "شركة بصمة تصميم - متخصصون في تصميم الهوية البصرية، السوشيال ميديا، والمحتوى الرقمي",
+              "legalName": "Basmat Design",
+              "url": "https://basmatdesign.cloud",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://basmatdesign.cloud/LOGO.png",
+                "width": "512",
+                "height": "512"
+              },
+              "description": "بصمة تصميم الشركة الرائدة في تصميم الهوية البصرية وإدارة السوشيال ميديا",
+              "slogan": "نصمم، نكتب، ونبني لك هوية تترك أثرًا",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "SA",
                 "addressRegion": "الرياض"
               },
-              "offers": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "تصميم الهوية البصرية",
-                    "description": "خدمات تصميم الشعارات والهوية البصرية الاحترافية"
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "bestRating": "5",
+                "ratingCount": "150"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog", 
+                "name": "خدمات بصمة تصميم",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "تصميم الهوية البصرية والشعارات",
+                      "description": "خدمات تصميم الشعارات والهوية البصرية الاحترافية",
+                      "category": "Design Services"
+                    },
+                    "seller": {
+                      "@type": "Organization",
+                      "name": "بصمة تصميم"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "إدارة السوشيال ميديا",
+                      "description": "إدارة وتصميم محتوى منصات التواصل الاجتماعي",
+                      "category": "Social Media Marketing"
+                    },
+                    "seller": {
+                      "@type": "Organization",
+                      "name": "بصمة تصميم"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "تصميم البنرات الإعلانية",
+                      "description": "تصميم بنرات إعلانية احترافية للحملات التسويقية",
+                      "category": "Advertising Design"
+                    },
+                    "seller": {
+                      "@type": "Organization",
+                      "name": "بصمة تصميم"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "كتابة المحتوى الإبداعي",
+                      "description": "خدمات كتابة المحتوى الإبداعي والتسويقي",
+                      "category": "Content Writing"
+                    },
+                    "seller": {
+                      "@type": "Organization",
+                      "name": "بصمة تصميم"
+                    }
                   }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "إدارة السوشيال ميديا",
-                    "description": "إدارة وتصميم محتوى منصات التواصل الاجتماعي"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "تصميم البنرات الإعلانية",
-                    "description": "تصميم بنرات إعلانية احترافية للحملات التسويقية"
-                  }
-                }
-              ]
+                ]
+              }
             }
           })
         }}

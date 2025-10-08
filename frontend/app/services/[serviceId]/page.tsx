@@ -2,6 +2,8 @@
 
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import { AutoSEOManager } from "@/components/seo/auto-seo-manager"
+import { Breadcrumbs } from "@/components/breadcrumbs"
 import { Share2, Layout, PenTool, FileUser, Crown, Linkedin, MessageSquare, Settings, Star, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -289,19 +291,27 @@ export default function ServiceDetailPage({
 
   return (
     <div className="min-h-screen bg-white">
+      {/* SEO Manager للخدمة */}
+      <AutoSEOManager 
+        pageType="service" 
+        pageId={normalizedServiceId}
+        customData={{
+          title: `${titleAr} - بصمة تصميم`,
+          description: shortDescription,
+          keywords: [titleAr, "بصمة تصميم", service.category, "خدمة تصميم"]
+        }}
+      />
+      
       <Header />
       <main className="pt-24">
         <div className="container mx-auto px-4 max-w-5xl">
-          {/* Breadcrumb */}
-          <nav className="mb-6">
-            <div className="flex items-center space-x-2 space-x-reverse text-sm text-gray-500">
-              <Link href="/" className="hover:text-[#4b2e83] arabic-text transition-colors">الرئيسية</Link>
-              <span>/</span>
-              <Link href="/services" className="hover:text-[#4b2e83] arabic-text transition-colors">الخدمات</Link>
-              <span>/</span>
-              <span className="text-[#4b2e83] arabic-text">{titleAr}</span>
-            </div>
-          </nav>
+          {/* Breadcrumb محسن */}
+          <Breadcrumbs 
+            items={[
+              { name: 'خدماتنا', href: '/services' },
+              { name: titleAr, href: `/services/${normalizedServiceId}`, current: true }
+            ]} 
+          />
 
           {/* Header - يظهر أولاً على الموبايل */}
           <div className="mb-8 order-1 lg:hidden">
